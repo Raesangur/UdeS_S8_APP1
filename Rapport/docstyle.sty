@@ -1,0 +1,113 @@
+\ProvidesPackage{docstyle}
+
+% French support packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[frenchb]{babel}
+%\addto\captionsfrench{\def\tablename{{Tableau}}}
+\usepackage{float}
+
+
+
+% Layout packages
+\usepackage{adjustbox}
+\usepackage{siunitx}
+\usepackage{lmodern}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{placeins}
+\usepackage{wrapfig}
+\usepackage{bigints}
+\usepackage[letterpaper, left=3cm,right=2cm,top=2.5cm,bottom=2.5cm, headheight=15pt]{geometry}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{pdfpages}
+\usepackage{svg}
+\usepackage{lipsum}
+\usepackage{ifthen}
+\usepackage{darkmode}
+\usepackage{comment}
+%\usepackage{multimedia}
+\usepackage{graphicx}
+\usepackage{animate}
+\usepackage{media9}
+%\usepackage{movie15}
+\usepackage{parskip}
+
+
+
+\setlength{\marginparwidth}{3cm}
+\usepackage{todonotes}
+
+\usepackage{titlesec}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue-green,
+    %filecolor=magenta,      
+    %urlcolor=cyan,
+    %pdftitle={Overleaf Example},
+    %pdfpagemode=FullScreen,
+    }
+
+
+
+% References
+%\usepackage{csquotes}
+%\usepackage[numbers]{natbib}
+\usepackage[style=alphabetic,backend=biber, style=numeric, sorting=none]{biblatex}
+%\usepackage{biblatex}
+
+
+% Sciences and Math packages
+\usepackage{tikz}
+\usepackage{tikzsymbols}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{witharrows}
+\usepackage{siunitx}
+\usepackage{chemformula}
+%\usepackage{semtrans}
+%\usepackage{array}
+%\usepackage{textgreek}
+%\usepackage[ruled,vlined]{algorithm2e}
+%\SetAlgorithmName{Algorithme}{Algorithme}{Table des algorithmes}
+%\usepackage{amsmath}
+%\usepackage{fixltx2e}
+
+% Caption
+\usepackage{capt-of}
+
+% For dotted table of content
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{2.3em}{3.2 em}}
+\makeatother
+
+%more control over table layouts
+\usepackage{tabulary}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\usepackage{float}
+\restylefloat{table}
+\usepackage{tabularx}
+
+% Horizontal line and separator
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\hseparator}{\hspace{0.3em}-\hspace{0.3em}}
+
+\newcommand{\doctitle}{}
+
+% Page layout
+\usepackage{lastpage}
+
+
+\emergencystretch = 1em
+\tolerance = 9999
+\pretolerance = 150
+\hbadness = 9998
+\hfuzz = 0pt
+

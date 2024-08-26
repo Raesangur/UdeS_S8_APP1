@@ -1,0 +1,91 @@
+\documentclass[12pt]{report}
+\usepackage{docstyle}
+
+
+\pagestyle{fancy}
+%\lhead{\suni\hseparator\studyprogram}
+\lhead{\suni}
+\rhead{\headertitle}
+\cfoot{Page \hyperref[toc]{\thepage} de \pageref{LastPage}}
+
+
+\addbibresource{references.bib}
+
+\enabledarkmode
+\IfDarkModeTF{%
+    \hypersetup{colorlinks, allcolors={cyan}}
+    %\definecolor{linkcolor}{RGB}{255, 100, 255}%
+}{%
+    \hypersetup{colorlinks, allcolors={blue}}
+    %\definecolor{linkcolor}{RGB}{10, 10, 255}%
+}
+%\UseRawInputEncoding
+
+
+%\pagecolor[rgb]{0,0,0} %black
+
+%\color[rgb]{1,1,1} %grey 
+\hbadness=10000  % Suppress horizontal underfull warnings
+\vbadness=10000  % Suppress vertical underfull warnings
+
+\begin{document}
+
+%\emergencystretch = 1em
+%\tolerance = 9999
+%\pretolerance = 150
+%\hbadness=9999
+
+\input{command.tex}
+\title{\doctitle}
+
+%--------------------------------------------------------------------------
+% Titre
+%--------------------------------------------------------------------------
+\input{Chapitres/title}
+\newpage
+
+
+%--------------------------------------------------------------------------
+% Avant-Guarde
+%--------------------------------------------------------------------------
+%To change default names: https://texfaq.org/FAQ-fixnam
+\pagenumbering{Roman}
+\renewcommand{\contentsname}{Table des Matières}
+\renewcommand{\listfigurename}{Liste des Figures}
+\renewcommand{\listtablename}{Liste des Tableaux}
+\renewcommand{\bibname}{Bibliographie}
+\renewcommand{\chaptername}{Chapitre}
+\tableofcontents 
+\label{toc}
+\listoffigures
+\listoftables
+
+\newpage
+\pagenumbering{arabic}
+
+\titleformat{\chapter}
+    {\bfseries\huge}
+    {}
+    {0pt}
+    {\titlerule[3pt]~\raisebox{-1.5pt}{\sc{\chaptername}~\thechapter}~\titlerule[3pt]%
+    \\\vspace{.05cm}\titlerule\\\filcenter \\\vspace{1.25cm}\titlerule\vspace{-1.7cm}}
+
+%--------------------------------------------------------------------------
+% Chapitre
+%--------------------------------------------------------------------------
+
+%\chapter{Introduction}
+%\label{chap:introduction}
+%\newpage
+\input{Chapitres/1-Introduction/1-Introduction}
+
+
+%--------------------------------------------------------------------------
+% Annexe
+%--------------------------------------------------------------------------
+
+\newpage
+\appendix
+
+%\printbibliography
+\end{document}

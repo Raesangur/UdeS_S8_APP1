@@ -1,0 +1,95 @@
+\renewcommand{\doctitle}{Rapport de Verification}
+\newcommand{\headertitle}{S8 - APP1}
+\newcommand{\institution}{}
+\newcommand{\faculte}{Faculté de génie}
+\newcommand{\uni}{Université de Sherbrooke}
+\newcommand{\suni}{Université de Sherbrooke}
+
+\newcommand{\mum}[1]{${#1}\:\unit{\mu m}$}
+\newcommand{\nam}[1]{${#1}\:\unit{nm}$}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolourDark}{rgb}{0.15,0.15,0.15}
+\definecolor{backcolourLight}{rgb}{0.95,0.95,0.92}
+
+\IfDarkModeT{
+    \newcommand{\importsch}[2]{
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=2]{Circuit/outputs/#1.png}
+            \caption{#2}
+            \label{Circuit:#1}
+        \end{figure}
+    }
+
+    \newcommand{\importplot}[3]{
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.8]{Images/#1-dark.png}
+            \caption{#2}
+            \label{Plot:#3}
+        \end{figure}
+    }
+    \lstdefinestyle{mystyle}{
+        backgroundcolor=\color{backcolourDark},   
+        commentstyle=\color{codegreen},
+        keywordstyle=\color{magenta},
+        numberstyle=\tiny\color{codegray},
+        stringstyle=\color{codepurple},
+        basicstyle=\ttfamily\footnotesize,
+        breakatwhitespace=false,         
+        breaklines=true,                 
+        captionpos=b,                    
+        keepspaces=true,                 
+        numbers=left,                    
+        numbersep=5pt,                  
+        showspaces=false,                
+        showstringspaces=false,
+        showtabs=false,                  
+        tabsize=2
+    }
+
+    \lstset{style=mystyle}
+}
+
+\IfDarkModeF{%
+    \newcommand{\importsch}[2]{
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=2.0]{Circuit/outputs/#1.png}
+            \caption{#2}
+            \label{Circuit:#1}
+        \end{figure}
+    }
+    \newcommand{\importplot}[3]{
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.8]{Images/#1-light.png}
+            \caption{#2}
+            \label{Plot:#3}
+        \end{figure}
+    }
+    \lstdefinestyle{mystyle}{
+        backgroundcolor=\color{backcolourLight},   
+        commentstyle=\color{codegreen},
+        keywordstyle=\color{magenta},
+        numberstyle=\tiny\color{codegray},
+        stringstyle=\color{codepurple},
+        basicstyle=\ttfamily\footnotesize,
+        breakatwhitespace=false,         
+        breaklines=true,                 
+        captionpos=b,                    
+        keepspaces=true,                 
+        numbers=left,                    
+        numbersep=5pt,                  
+        showspaces=false,                
+        showstringspaces=false,
+        showtabs=false,                  
+        tabsize=2
+    }
+
+    \lstset{style=mystyle}
+}

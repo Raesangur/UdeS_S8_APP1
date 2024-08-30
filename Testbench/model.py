@@ -35,3 +35,5 @@ class Model:
         return [model_result1, model_result2]
 
 
+if __name__ == "__main__":
+    print("Test Model")

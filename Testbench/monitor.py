@@ -92,3 +92,5 @@ class Monitor:
         # for loop going through all the values in the signals to sample (see constructor)
         return {name: handle.value for name, handle in self._datas.items()}
 
+if __name__ == "__main__":
+    print("Test Monitor")

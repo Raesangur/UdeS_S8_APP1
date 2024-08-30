@@ -76,3 +76,7 @@ class Checker:
             assert actual["SignalC"] == expected[0]
             assert actual["SignalD"] == expected[1]
             """
+
+
+if __name__ == "__main__":
+    print("Test Checker")

@@ -13,6 +13,7 @@ from cocotb.queue import Queue
 from cocotb.runner import get_runner
 from cocotb.triggers import RisingEdge
 from cocotb.log import SimLog
+from utilsVerif import get_expected_crc
 
 class DataValidMonitor_Template:
     """
@@ -68,8 +69,8 @@ class DataValidMonitor_Template:
         Return value is what is stored in queue. Meant to be overriden by the user.
         """
         # possible messages to test monitor
-        self.log.info("use this to print some information at info level")
-        self.log.info({name: handle.value for name, handle in self._datas.items()})
+        #self.log.info("use this to print some information at info level")
+        #self.log.info({name: handle.value for name, handle in self._datas.items()})
 
 
         # for loop going through all the values in the signals to sample (see constructor)
@@ -84,18 +85,19 @@ class MMC_GRC8:
     """
 
     def __init__(self, logicblock_instance: SimHandleBase):
+        self.log = SimLog("MMC_GRC8 Constructor")
         self.dut = logicblock_instance
 
         self.input_mon = DataValidMonitor_Template(
             clk=self.dut.clk,
             valid=self.dut.i_valid,
-            datas=dict(SignalA=self.dut.i_last, SignalB=self.dut.i_data),
+            datas=dict(i_last=self.dut.i_last, i_data=self.dut.i_data),
         )
 
         self.output_mon = DataValidMonitor_Template(
             clk=self.dut.clk,
             valid=self.dut.o_done,
-            datas=dict(SignalC=self.dut.o_match, SignalD=self.dut.o_crc8),        
+            datas=dict(o_match=self.dut.o_match, o_crc8=self.dut.o_crc8),        
         )
 
         self._checkercoro = None
@@ -108,7 +110,7 @@ class MMC_GRC8:
             raise RuntimeError("Monitor already started")
         self.input_mon.start()
         self.output_mon.start()
-        self._checkercoro = cocotb.start_soon(self._check())
+        self._checkercoro = cocotb.start_soon(self._checker())
 
     def stop(self) -> None:
         """Stops everything"""
@@ -123,8 +125,9 @@ class MMC_GRC8:
     # modifiy as needed.
     def model(self, InputsA: List[int], InputsB: List[int]) -> List[int]:
         # equivalent model to HDL code
-        model_result1 = 0
-        model_result2 = 1
+        crc_val = get_expected_crc(InputsB.buff[:-1])
+        model_result1 = crc_val == InputB.buff[-1]
+        model_result2 = crc_val
         return [model_result1, model_result2]
 
 
@@ -132,18 +135,21 @@ class MMC_GRC8:
     # then compare output monitor result with model result
     # This example might not work every time.
     async def _checker(self) -> None:
-        while True:
+        test_done = False
+        while not test_done:
             # dummy await, allows to run without checker implementation and verify monitors
             await cocotb.triggers.ClockCycles(self.dut.clk, 1000, rising=True)
-            """
-            actual = await self.output_mon.values.get()
+            
+            actual = []
+            while not self.input_mon.values.empty():
+                actual.append(await self.output_mon.values.get())
+
             expected_inputs = await self.input_mon.values.get()
             expected = self.model(
-                InputsA=expected_inputs["SignalA"], InputsB=expected_inputs["SignalB"]
+                InputsA=expected_inputs["i_last"], InputsB=expected_inputs["i_data"]
             )
 
             # compare expected with actual using assertions. Exact indexing must
             # be adapted to specific case and model return value
-            assert actual["SignalC"] == expected[0]
-            assert actual["SignalD"] == expected[1]
-            """
+            assert actual["o_match"] == expected[0]
+            assert actual["o_crc8"] == expected[1]

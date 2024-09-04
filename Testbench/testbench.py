@@ -3,14 +3,16 @@
 
 from abc import ABCMeta
 import cocotb
-
+import monitor
+import checker
+import model
 
 class Testbench(metaclass=ABCMeta):
     self.generator  = None
-    self.monitorIn  = None
-    self.monitorOut = None
-    self.checker    = None
-    self.model      = None
+    self.monitorIn  = Monitor()
+    self.monitorOut = Monitor()
+    self.checker    = Checker()
+    self.model      = Model()
     self.driver     = None
 
 
@@ -34,3 +36,8 @@ class Testbench(metaclass=ABCMeta):
 
         if(PYCHARMDEBUG == "enabled"):
             pydevd_pycharm.settrace('localhost', port=5333, stdoutToServer=True, stderrToServer=True)
+
+
+
+if __name__ == "__main__":
+    print("Test TestBench")

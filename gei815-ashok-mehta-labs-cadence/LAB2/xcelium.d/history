@@ -1,0 +1,6 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(09Sep2024:20:34:51):( xrun -define nonoverlap -rnm_package -nowarn COVFHT -nowarn COVCGN -nowarn COVUTA -nowarn ICFCLD -nowarn WSEM2009 -input /home/lacp3102/APP1/UdeS_S8_APP1/gei815-ashok-mehta-labs-cadence/verif/scripts/misc_commands.tcl -gui -input /home/lacp3102/APP1/UdeS_S8_APP1/gei815-ashok-mehta-labs-cadence/verif/scripts/waves.tcl -ACCESS +rwc -seed random test_overlap_nonoverlap.sv )
+s2::(09Sep2024:20:39:49):( xrun -define overlap -rnm_package -nowarn COVFHT -nowarn COVCGN -nowarn COVUTA -nowarn ICFCLD -nowarn WSEM2009 -input /home/lacp3102/APP1/UdeS_S8_APP1/gei815-ashok-mehta-labs-cadence/verif/scripts/misc_commands.tcl -gui -input /home/lacp3102/APP1/UdeS_S8_APP1/gei815-ashok-mehta-labs-cadence/verif/scripts/waves.tcl -ACCESS +rwc -seed random test_overlap_nonoverlap.sv )

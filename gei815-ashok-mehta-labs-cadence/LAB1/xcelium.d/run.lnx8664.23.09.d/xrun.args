@@ -3,7 +3,7 @@
 // Do not modify this file
 //
 -define
-implication_novac
+no_implication
 -rnm_package
 -nowarn
 COVFHT

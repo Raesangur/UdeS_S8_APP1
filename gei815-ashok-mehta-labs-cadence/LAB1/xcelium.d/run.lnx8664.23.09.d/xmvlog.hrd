@@ -3,5 +3,5 @@
 // Do not modify this file
 //
 -DEFINE
-implication_novac
+no_implication
 -sv

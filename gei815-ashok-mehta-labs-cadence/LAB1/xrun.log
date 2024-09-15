@@ -1,7 +1,7 @@
 xrun(64): 23.09-s006: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	23.09-s006: Started on Sep 09, 2024 at 15:14:37 EDT
+TOOL:	xrun(64)	23.09-s006: Started on Sep 14, 2024 at 16:59:11 EDT
 xrun
-	-define implication_novac
+	-define no_implication
 	-rnm_package
 	-nowarn COVFHT
 	-nowarn COVCGN
@@ -17,34 +17,8 @@ xrun
 	dut.v
 	test_dut.sv
 	dut_property.sv
-file: dut_property.sv
-	module worklib.dut_property:sv
-		errors: 0, warnings: 0
-		Caching library 'worklib' ....... Done
-	Elaborating the design hierarchy:
-	Top level design units:
-		test_dut
-		Caching library 'worklib' ....... Done
-	Building instance overlay tables: .................... Done
-	Generating native compiled code:
-		worklib.dut_property:sv <0x28c29e67>
-			streams:   8, words:  6305
-	Building instance specific data structures.
-	Loading native compiled code:     .................... Done
-	Design hierarchy summary:
-		              Instances  Unique
-		Modules:              3       3
-		Registers:           16      16
-		Scalar wires:         4       -
-		Named events:         2       2
-		Always blocks:       12      12
-		Initial blocks:       7       7
-		Pseudo assignments:   3       -
-		Assertions:           2       2
-		Process Clocks:       2       2
-	Writing initial simulation snapshot: worklib.test_dut:sv
 xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
-SVSEED set randomly from command line: 847562547
+SVSEED set randomly from command line: 1386580774
 
 -------------------------------------
 Relinquished control to SimVision...
@@ -63,9 +37,9 @@ xcelium>
 xcelium> 
 xcelium> # get the seed. Reference: "SystemVerilog Reference" from Cadence Help tool (cdnshelp)
 xcelium> set RetrievedSeed [set svseed]
-847562547
+1386580774
 xcelium> puts "The SystemVerilog seed is $RetrievedSeed"
-The SystemVerilog seed is 847562547
+The SystemVerilog seed is 1386580774
 xcelium> 
 xcelium> # set severity_pack_assert_off {warning}
 xcelium> # set pack_assert_off {  numeric_std }
@@ -89,16 +63,60 @@ xcelium> probe -create $::env(LAB_TEST_DUT_NAME) -all -depth all -database waves
 Created probe 1
 xcelium> run
         10  clk=1 req=0 gnt=0
+  @(posedge pclk) preq ##2 pgnt;
+                     |
+xmsim: *E,ASRTST (./dut_property.sv,8): (time 10 NS) Assertion test_dut.dut1.dut_bind_inst.preqGnt has failed (1 cycles, starting 10 NS)
+10 NS + 2 (Assertion output stop: test_dut.dut1.dut_bind_inst.preqGnt = failed)
+xcelium> run
+        10  		 test_dut.dut1.dut_bind_inst.preqGnt FAIL
         30  clk=1 req=1 gnt=0
         50  clk=1 req=0 gnt=1
+  @(posedge pclk) preq ##2 pgnt;
+                     |
+xmsim: *E,ASRTST (./dut_property.sv,8): (time 50 NS) Assertion test_dut.dut1.dut_bind_inst.preqGnt has failed (1 cycles, starting 50 NS)
+50 NS + 2 (Assertion output stop: test_dut.dut1.dut_bind_inst.preqGnt = failed)
+xcelium> run
+        50  		 test_dut.dut1.dut_bind_inst.preqGnt FAIL
         70  clk=1 req=0 gnt=1
+  @(posedge pclk) preq ##2 pgnt;
+                     |
+xmsim: *E,ASRTST (./dut_property.sv,8): (time 70 NS) Assertion test_dut.dut1.dut_bind_inst.preqGnt has failed (1 cycles, starting 70 NS)
+70 NS + 2 (Assertion output stop: test_dut.dut1.dut_bind_inst.preqGnt = failed)
+xcelium> run
+        70  		 test_dut.dut1.dut_bind_inst.preqGnt FAIL
         90  clk=1 req=1 gnt=0
        110  clk=1 req=0 gnt=0
+  @(posedge pclk) preq ##2 pgnt;
+                     |
+xmsim: *E,ASRTST (./dut_property.sv,8): (time 110 NS) Assertion test_dut.dut1.dut_bind_inst.preqGnt has failed (1 cycles, starting 110 NS)
+110 NS + 2 (Assertion output stop: test_dut.dut1.dut_bind_inst.preqGnt = failed)
+xcelium> run
+       110  		 test_dut.dut1.dut_bind_inst.preqGnt FAIL
        130  clk=1 req=0 gnt=0
-  @(posedge pclk) preq |-> ##2 pgnt;
-                                  |
-xmsim: *E,ASRTST (./dut_property.sv,23): (time 130 NS) Assertion test_dut.dut1.dut_bind_inst.preqGnt has failed (3 cycles, starting 90 NS)
+  @(posedge pclk) preq ##2 pgnt;
+                              |
+xmsim: *E,ASRTST (./dut_property.sv,8): (time 130 NS) Assertion test_dut.dut1.dut_bind_inst.preqGnt has failed (3 cycles, starting 90 NS)
 130 NS + 2 (Assertion output stop: test_dut.dut1.dut_bind_inst.preqGnt = failed)
+xcelium> run
+  @(posedge pclk) preq ##2 pgnt;
+                     |
+xmsim: *E,ASRTST (./dut_property.sv,8): (time 130 NS) Assertion test_dut.dut1.dut_bind_inst.preqGnt has failed (1 cycles, starting 130 NS)
+130 NS + 2 (Assertion output stop: test_dut.dut1.dut_bind_inst.preqGnt = failed)
+xcelium> run
+       130  		 test_dut.dut1.dut_bind_inst.preqGnt FAIL
+       150  clk=1 req=0 gnt=0
+Memory Usage - Current physical: 86.5M, Current virtual: 377.3M
+CPU Usage - 0.7s system + 0.4s user = 1.1s total (2.3% cpu)
+Simulation complete via $finish(2) at time 150 NS + 0
+./test_dut.sv:66 @(posedge sys_clk); $finish(2);
+xcelium> run
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> run
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> probe -create -shm test_dut.dut1.dut_bind_inst.preqGnt -waveform -assertions -assertdebug
+Created probe 2
+xcelium> probe -create -shm test_dut.dut1.dut_bind_inst.preqGnt -waveform -assertions -transaction
+Created probe 3
 xcelium> ^C
 xcelium> exit
-TOOL:	xrun(64)	23.09-s006: Exiting on Sep 09, 2024 at 15:33:31 EDT  (total: 00:18:54)
+TOOL:	xrun(64)	23.09-s006: Exiting on Sep 14, 2024 at 21:18:38 EDT  (total: 04:19:27)

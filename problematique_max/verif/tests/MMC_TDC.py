@@ -76,29 +76,36 @@ class DataValidMonitor_Template:
         # for loop going through all the values in the signals to sample (see constructor)
         return {name: handle.value for name, handle in self._datas.items()}
 
-class MMC_GRC8:
-    """
-    Reusable checker of a checker instance
+class MMC_TDC:
 
-    Args
-        logicblock_instance: handle to an instance of a logic block
-    """
-
-    def __init__(self, logicblock_instance: SimHandleBase):
-        self.log = SimLog("MMC_GRC8 Constructor")
+    def __init__(self, logicblock_instance: SimHandleBase, monitor_type: int, test_type: int ):
+        self.log = SimLog("MMC_TDC Constructor")
         self.dut = logicblock_instance
+        if monitor_type == 0:
+            self.input_mon = DataValidMonitor_Template(
+                clk=self.dut.clk,
+                valid=self.dut.i_enable_channel,
+                datas=dict(i_reset=self.dut.i_reset, i_trigger=self.dut.i_trigger, i_clear=self.dut.i_clear),
+            )
 
-        self.input_mon = DataValidMonitor_Template(
-            clk=self.dut.clk,
-            valid=self.dut.i_valid,
-            datas=dict(i_last=self.dut.i_last, i_data=self.dut.i_data),
-        )
+            self.output_mon = DataValidMonitor_Template(
+                clk=self.dut.clk,
+                valid=self.dut.o_hasEvent,
+                datas=dict(o_busy=self.dut.o_busy, o_chanID=self.dut.o_chanID, o_timestamp=self.dut.o_timestamp, o_pulseWidth=self.dut.o_pulseWidth),        
+            )
+        else:
+            self.input_mon = DataValidMonitor_Template(
+                clk=self.dut.clk,
+                valid=self.dut.i_enable_channel,
+                datas=dict(i_reset=self.dut.i_reset, i_trigger=self.dut.i_trigger, i_clear=self.dut.i_clear),
+            )
 
-        self.output_mon = DataValidMonitor_Template(
-            clk=self.dut.clk,
-            valid=self.dut.o_done,
-            datas=dict(o_match=self.dut.o_match, o_crc8=self.dut.o_crc8),        
-        )
+            self.output_mon = DataValidMonitor_Template(
+                clk=self.dut.clk,
+                valid=self.dut.o_busy,
+                datas=dict(o_hasEvent=self.dut.o_hasEvent, o_chanID=self.dut.o_chanID, o_timestamp=self.dut.o_timestamp, o_pulseWidth=self.dut.o_pulseWidth),        
+            )
+
 
         self._checkercoro = None
 
@@ -137,19 +144,38 @@ class MMC_GRC8:
     async def _checker(self) -> None:
         test_done = False
         while not test_done:
-            # dummy await, allows to run without checker implementation and verify monitors
-            await cocotb.triggers.ClockCycles(self.dut.clk, 1000, rising=True)
-            
-            actual = []
-            while not self.input_mon.values.empty():
-                actual.append(await self.output_mon.values.get())
+            # SD1: Send a i_trigger signals while keeping i_enable_channel false. o_busy should always stays deasserted
+            if test_type == 1:
+                self.input_mon.valid.value = 0
+                self.input_mon.data["i_trigger"].value = 1
 
-            expected_inputs = await self.input_mon.values.get()
-            expected = self.model(
-                InputsA=expected_inputs["i_last"], InputsB=expected_inputs["i_data"]
-            )
+                assert self.output_mon.valid.value == 0
 
-            # compare expected with actual using assertions. Exact indexing must
-            # be adapted to specific case and model return value
-            assert actual["o_match"] == expected[0]
-            assert actual["o_crc8"] == expected[1]
+            # SD2: Create 10 i_trigger pulse signals width corresponding to a 'one hot" - 200ns time width. The output o_pulseWidth should correspond to a "one hot" encoding. (LSB is 40ps)    
+            if test_type == 2:
+                print("Test 2")
+            # SDdut.reset.value = 03: We assert i_trigger  with pulses shorter than 20ns, o_busy should stay deasserted
+            if test_type == 3:
+                print("Test 3")
+
+            # SD4: Send a i_trigger signal shorter than 20ns, o_busy is not asserted.
+            if test_type == 4:
+                print("Test 4")
+
+            # SD5: Send a i_trigger signal longer than 5us. o_pulseWidth should read 0x0001E848
+            if test_type == 5:
+                actual = []
+                while not self.input_mon.values.empty():
+                    actual.append(await self.output_mon.values.get())
+
+                expected_inputs = await self.input_mon.values.get()
+                expected = self.model(
+                    InputsA=expected_inputs["i_last"], InputsB=expected_inputs["i_data"]
+                )
+
+                # compare expected with actual using assertions. Exact indexing must
+                # be adapted to specific case and model return value
+                assert actual["o_match"] == expected[0]
+                assert actual["o_crc8"] == expected[1]
+
+

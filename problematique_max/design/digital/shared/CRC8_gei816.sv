@@ -6,9 +6,7 @@
 */
 `timescale 1ps/1ps
 
-module CRC8816 #(parameter
-    DATA_LENGTH = 32,
-    DATA_LENGTH_BYTES = (DATA_LENGTH/8))(
+module CRC8816 (
     input logic clk,
     input logic reset,
     input logic i_valid,
@@ -86,6 +84,7 @@ module CRC8816 #(parameter
             state <= IDLE;
             r_match = 0;
             r_done = 0;
+            r_crc8 = CRC8_Start;
         end
         else begin
             FSM();

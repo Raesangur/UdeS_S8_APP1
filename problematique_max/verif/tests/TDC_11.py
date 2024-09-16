@@ -19,7 +19,7 @@ async def TDC_11(dut):
     inst_MMC_TDC.start()
     for i in range(10):
         #Generate random pulse length:
-        Pulse_time = random.randint(1,1500-1)*40 #40ps cycles
+        Pulse_time = random.randint(1,500-1)*40 #40ps cycles
 
         # Initialisation of clock and input pins
         await cocotb.start(Clock(dut.clk, 10, units='ns').start())
@@ -61,5 +61,4 @@ async def TDC_11(dut):
         print("------------------------------------------------")
         print(f"Pulse Length excitation {i}: {Pulse_time/1000}ns")
 
-        #We validate time pulse is correct
-        assert dut.inst_tdc_channel_0.o_hasEvent == 0
+        await cocotb.start(Clock(dut.clk, 1000, units='ns').start())

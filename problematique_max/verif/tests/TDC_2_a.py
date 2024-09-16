@@ -16,7 +16,7 @@ async def TDC_2_a(dut):
     print("**************************************************************************************")
 
     # Instanciation du MMC
-    inst_MMC_TDC = MMC_TDC(dut.inst_tdc_channel_0, test_id = 1)
+    inst_MMC_TDC = MMC_TDC(dut.inst_tdc_channel_0, monitor_type = 0, test_id = 1)
     inst_MMC_TDC.start()
 
     # Initialisation of clock and input pins

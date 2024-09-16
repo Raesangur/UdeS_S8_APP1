@@ -75,21 +75,34 @@ class DataValidMonitor_TDC:
 
 class MMC_TDC:
 
-    def __init__(self, logicblock_instance: SimHandleBase, test_id: int ):
+    def __init__(self, logicblock_instance: SimHandleBase,monitor_type: int, test_id: int ):
         self.test_id = test_id
         self.log = SimLog("MMC_TDC Constructor")
         self.dut = logicblock_instance
-        self.input_mon = DataValidMonitor_TDC(
-            clk=self.dut.clk,
-            valid=self.dut.i_enable_channel,
-            datas=dict(i_reset=self.dut.reset, i_trigger=self.dut.i_trigger, i_clear=self.dut.i_clear),
-        )
+        if monitor_type == 0:
+            self.input_mon = DataValidMonitor_TDC(
+                clk=self.dut.clk,
+                valid=self.dut.i_enable_channel,
+                datas=dict(i_reset=self.dut.reset, i_trigger=self.dut.i_trigger, i_clear=self.dut.i_clear),
+            )
 
-        self.output_mon = DataValidMonitor_TDC(
-            clk=self.dut.clk,
-            valid=self.dut.o_busy,
-            datas=dict(o_busy=self.dut.o_busy, o_chanID=self.dut.o_chanID, o_timestamp=self.dut.o_timestamp, o_pulseWidth=self.dut.o_pulseWidth, o_hasEvent = self.dut.o_hasEvent),        
-        )
+            self.output_mon = DataValidMonitor_TDC(
+                clk=self.dut.clk,
+                valid=self.dut.o_busy,
+                datas=dict(o_busy=self.dut.o_busy, o_chanID=self.dut.o_chanID, o_timestamp=self.dut.o_timestamp, o_pulseWidth=self.dut.o_pulseWidth, o_hasEvent = self.dut.o_hasEvent),        
+            )
+        if monitor_type == 1:
+            self.input_mon = DataValidMonitor_TDC(
+                clk=self.dut.clk,
+                valid=self.dut.i_enable_channel,
+                datas=dict(i_reset=self.dut.reset, i_trigger=self.dut.i_trigger, i_clear=self.dut.i_clear),
+            )
+
+            self.output_mon = DataValidMonitor_TDC(
+                clk=self.dut.clk,
+                valid=self.dut.o_hasEvent,
+                datas=dict(o_busy=self.dut.o_busy, o_chanID=self.dut.o_chanID, o_timestamp=self.dut.o_timestamp, o_pulseWidth=self.dut.o_pulseWidth, o_hasEvent = self.dut.o_hasEvent),        
+            )
 
         self._checkercoro = None
 
@@ -128,6 +141,7 @@ class MMC_TDC:
     async def _checker(self) -> None:
         test_done = False
         wait_time = 0
+        check=0
         while not test_done:
             # SD1: Send a i_trigger signals while keeping i_enable_channel false. o_busy should always stays deasserted
             if self.test_id == 1:
@@ -137,7 +151,7 @@ class MMC_TDC:
                 data = await self.output_mon.values.get()
                 assert data["o_busy"] == 0
 
-            # SD2: Create 10 i_trigger pulse signals width corresponding to a 'one hot" - 200ns time width. The output o_pulseWidth should correspond to a "one hot" encoding. (LSB is 40ps)    
+            # SD2: We measure pulse width    
             if self.test_id == 2:
                 while not self.output_mon.values.empty():
                     data = await self.output_mon.values.get()
@@ -169,9 +183,22 @@ class MMC_TDC:
                 await cocotb.triggers.ClockCycles(self.dut.clk, 1, rising = True)
                 data = await self.output_mon.values.get()
                 assert data["o_hasEvent"] == 0
-
-
+                
             # SD5: Send a i_trigger signal longer than 5us. o_pulseWidth should read 0x0001E848
             if self.test_id == 5:
-                print("test 5")
-
+                await cocotb.triggers.ClockCycles(self.dut.clk, 1, rising = True)
+                while not self.output_mon.values.empty():
+                    data = await self.output_mon.values.get()
+                    if check==0:
+                        data = await self.output_mon.values.get()
+                        #print(data["o_pulseWidth"])
+                        #print(data["o_pulseWidth"].integer)
+                        assert data["o_pulseWidth"].integer == 125000 
+                        check =1
+                        
+            # SD6: Is the i_trigger falling edge ignored after 5us
+            if self.test_id == 6:
+                await cocotb.triggers.ClockCycles(self.dut.clk, 1, rising = True)
+                while not self.output_mon.values.empty():
+                    data = await self.output_mon.values.get()
+                    assert data["o_pulseWidth"].integer == 125000 

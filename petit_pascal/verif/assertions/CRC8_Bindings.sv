@@ -38,7 +38,7 @@ endclocking
 
 
 // ----------------------------
-// Coverage tests for all IOs
+// cover tests for all IOs
 covergroup covg_crc8
     @(posedge cov_clk);
 	option.name		= "cov_crc8";
@@ -64,22 +64,25 @@ endgroup
 // CRC 1 - i_reset
 // CRC 1.a - o_match becomes 0
 property p_crc1a;
-    @(posedge cov_clk) $rose(cov_reset) |=> ##1 (cov_match == 0);
+    @(posedge cov_clk) $rose(cov_reset) |=> (cov_match == 0);
 endproperty
+cov_crc1a : cover property(p_crc1a);
 ast_crc1a : assert property(p_crc1a)
     else $display($stime,,,"\t\tCRC1a::i_reset::o_match didn't go to 0\n");
 
 // CRC 1.b - o_done becomes 0
 property p_crc1b;
-    @(posedge cov_clk) $rose(cov_reset) |=> ##1 (cov_done == 0);
+    @(posedge cov_clk) $rose(cov_reset) |=> (cov_done == 0);
 endproperty
+cov_crc1b : cover property(p_crc1b);
 ast_crc1b : assert property(p_crc1b)
     else $display($stime,,,"\t\tCRC1b::i_reset::o_done didn't go to 0\n");
 
 // CRC 1.c - o_crc8 becomes 0x0D
 property p_crc1c;
-    @(posedge cov_clk) $rose(cov_reset) |=> ##1 (cov_crc8 == 8'h0D);
+    @(posedge cov_clk) $rose(cov_reset) |=> (cov_crc8 == 8'h0D);
 endproperty
+cov_crc1c : cover property(p_crc1c);
 ast_crc1c : assert property(p_crc1c)
     else $display($stime,,,"\t\tCRC1c::i_reset::o_crc8 didn't go to 0x0D\n");
 
@@ -89,8 +92,9 @@ ast_crc1c : assert property(p_crc1c)
 // CRC 3.b - i_last always at the same time as i_valid
 property p_crc3b;
     @(posedge cov_clk) disable iff (cov_reset)
-        $rose(cov_last) |=> cov_valid;
+        $rose(cov_last) |-> cov_valid;
 endproperty
+cov_crc3b : cover property(p_crc3b);
 ast_crc3b : assert property(p_crc3b)
     else $display($stime,,,"\t\tCRC3b::i_last::i_last didn't rise at the same time as i_valid\n");
 
@@ -100,8 +104,9 @@ ast_crc3b : assert property(p_crc3b)
 // CRC 5.a - Rises 1-2 clock cycles after i_last
 property p_crc5a;
     @(posedge cov_clk) disable iff (cov_reset)
-        $rose(cov_last) |=> ##[1:2] $rose(cov_done);
+        $rose(cov_last) |-> ##[1:2] $rose(cov_done);
 endproperty
+cov_crc5a : cover property(p_crc5a);
 ast_crc5a : assert property(p_crc5a)
     else $display($stime,,,"\t\tCRC5a::o_done::o_done didn't rise 2 clock cycles after i_last\n");
 
@@ -110,6 +115,7 @@ property p_crc5b;
     @(posedge cov_clk)
         $fell(cov_done) |=> $past(cov_reset, 1);
 endproperty
+cov_crc5b : cover property(p_crc5b);
 ast_crc5b : assert property(p_crc5b)
     else $display($stime,,,"\t\tCRC5b::o_done::o_done fell without a reset\n");
 
@@ -120,16 +126,18 @@ ast_crc5b : assert property(p_crc5b)
 // CRC 6.a - o_match asserts at the same time as o_done
 property p_crc6a;
     @(posedge cov_clk) disable iff (cov_reset)
-        $rose(cov_match) |=> $rose(cov_done);
+        $rose(cov_match) |-> $rose(cov_done);
 endproperty
+cov_crc6a : cover property(p_crc6a);
 ast_crc6a : assert property(p_crc6a)
     else $display($stime,,,"\t\tCRC6a::o_match::o_match didn't rise at the same time as o_done\n");
 
 // CRC 5.b - o_match asserts only one clock cycle after o_crc is 0x00
 property p_crc6b;
     @(posedge cov_clk) disable iff (cov_reset)
-        cov_crc8 == 0 |=> ##1 $rose(cov_match);
+        cov_crc8 == 8'h0 |=> $rose(cov_match);
 endproperty
+cov_crc6b : cover property(p_crc6b);
 ast_crc6b : assert property(p_crc6b)
     else $display($stime,,,"\t\tCRC6b::o_match::o_match didn't trigger when o_crc is 0x00\n");
 
@@ -140,8 +148,9 @@ ast_crc6b : assert property(p_crc6b)
 // CRC 7.b - o_crc8 doesn't change when i_valid is 0
 property p_crc7b;
     @(posedge cov_clk) disable iff (cov_reset)
-        cov_valid == 0 |=> $stable(cov_crc8);
+        !cov_valid |=> $stable(cov_crc8);
 endproperty
+cov_crc7b : cover property(p_crc7b);
 ast_crc7b : assert property(p_crc7b)
     else $display($stime,,,"\t\tCRC7b::o_crc8::o_crc8 changed when i_valid was 0\n");
 

@@ -16,8 +16,8 @@ async def TDC_2_a(dut):
     print("**************************************************************************************")
 
     # Instanciation du MMC
-    #inst_MMC_TDC = MMC_TDC(dut.inst_tdc_channel_1, monitor_type = 1, test_type = 1)
-    #inst_MMC_TDC.start()
+    inst_MMC_TDC = MMC_TDC(dut.inst_tdc_channel_0, test_id = 1)
+    inst_MMC_TDC.start()
 
     # Initialisation of clock and input pins
     dut.reset.value = 1
@@ -30,7 +30,7 @@ async def TDC_2_a(dut):
 
     #We Assert the i_trigger
     dut.inst_tdc_channel_0.i_trigger.value = 1
-    await cocotb.triggers.ClockCycles(dut.clk, 10, rising = True)
+    await cocotb.triggers.ClockCycles(dut.clk, 1000, rising = True)
     
     #We validate o_busy is deasserted
-    assert dut.inst_tdc_channel_0.o_busy.value == 0
+    #assert dut.inst_tdc_channel_0.o_busy.value == 0

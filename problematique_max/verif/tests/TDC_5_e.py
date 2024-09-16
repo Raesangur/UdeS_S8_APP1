@@ -46,13 +46,10 @@ async def TDC_5_e(dut):
         #We Assert the i_trigger
         await cocotb.triggers.Timer(Wait_time, 'ps')
         dut.inst_tdc_channel_0.i_trigger.value = 1
-        #await RisingEdge(dut.inst_tdc_channel_0.o_busy)
-        #await cocotb.triggers.ClockCycles(dut.clk, 100, rising = True)
         await cocotb.triggers.Timer(300, 'ns')
         
         #We Deassert the i_trigger and wait for o_busy to deassert
         dut.inst_tdc_channel_0.i_trigger.value = 0
-        #await cocotb.triggers.FallingEdge(dut.inst_tdc_channel_0.o_hasEvent)
         await cocotb.triggers.ClockCycles(dut.clk, 1000, rising = True)
 
         Wait_time = Wait_time + 30000

@@ -1,8 +1,3 @@
-# This file is public domain, it can be freely copied without restrictions.
-# SPDX-License-Identifier: CC0-1.0
-
-# adapted from https://github.com/cocotb/cocotb/blob/stable/1.9/examples/matrix_multiplier/tests/test_matrix_multiplier.py
-
 from typing import Any, Dict, List
 
 import cocotb
@@ -17,9 +12,6 @@ from utilsVerif import get_expected_crc
 
 class DataValidMonitor_Template:
     """
-    Reusable Monitor of one-way control flow (data/valid) streaming data interface
-
-    Args
         clk: clock signal
         valid: control signal noting a transaction occured
         datas: named handles to be sampled when transaction occurs
@@ -78,37 +70,21 @@ class DataValidMonitor_Template:
 
 class MMC_CRC8:
 
-    def __init__(self, logicblock_instance: SimHandleBase, monitor_type: int, test_type: int):
+    def __init__(self, logicblock_instance: SimHandleBase):
         self.log = SimLog("MMC_CRC8 Constructor")
         self.dut = logicblock_instance
         
-        self.monitor_type = monitor_type
-        self.test_type = test_type
+        self.input_mon = DataValidMonitor_Template(
+            clk=self.dut.clk,
+            valid=self.dut.i_valid,
+            datas=dict(i_last=self.dut.i_last, i_data=self.dut.i_data),
+        )
 
-        if self.monitor_type == 0:
-            self.input_mon = DataValidMonitor_Template(
-                clk=self.dut.clk,
-                valid=self.dut.i_valid,
-                datas=dict(i_last=self.dut.i_last, i_data=self.dut.i_data),
-            )
-
-            self.output_mon = DataValidMonitor_Template(
-                clk=self.dut.clk,
-                valid=self.dut.o_done,
-                datas=dict(o_match=self.dut.o_match, o_crc8=self.dut.o_crc8),        
-                )
-        if self.monitor_type == 1:
-            self.input_mon = DataValidMonitor_Template(
-                clk=self.dut.clk,
-                valid=self.dut.i_valid,
-                datas=dict(i_last=self.dut.i_last, i_data=self.dut.i_data),
-            )
-
-            self.output_mon = DataValidMonitor_Template(
-                clk=self.dut.clk,
-                valid=self.dut.o_done,
-                datas=dict(o_match=self.dut.o_match, o_crc8=self.dut.o_crc8),        
-            )
+        self.output_mon = DataValidMonitor_Template(
+            clk=self.dut.clk,
+            valid=self.dut.o_done,
+            datas=dict(o_match=self.dut.o_match, o_crc8=self.dut.o_crc8),        
+        )
 
         self._checkercoro = None
 
@@ -147,28 +123,21 @@ class MMC_CRC8:
     async def _checker(self) -> None:
         test_done = False
         while not test_done:
-            # dummy await, allows to run without checker implementation and verify monitors
             await cocotb.triggers.ClockCycles(self.dut.clk, 1000, rising=True)
             
-           # SD1: Send a i_trigger signals while keeping i_enable_channel false. o_busy should always stays deasserted
-            if self.test_type == 1:
-                print("test_type 1")   
-                
             # SA1: Compare o_crc with the model using the same i_data 
-            if self.test_type == 2:
+            actual = []
+            while not self.input_mon.values.empty():
+                actual.append(await self.output_mon.values.get())
 
-                actual = []
-                while not self.input_mon.values.empty():
-                    actual.append(await self.output_mon.values.get())
+            expected_inputs = await self.input_mon.values.get()
+            expected = self.model(
+                InputsA=expected_inputs["i_last"], InputsB=expected_inputs["i_data"]
+            )
 
-                expected_inputs = await self.input_mon.values.get()
-                expected = self.model(
-                    InputsA=expected_inputs["i_last"], InputsB=expected_inputs["i_data"]
-                )
-
-                # compare expected with actual using assertions. Exact indexing must
-                # be adapted to specific case and model return value
-                assert actual["o_match"] == expected[0]
-                assert actual["o_crc8"] == expected[1]
+            # compare expected with actual using assertions. Exact indexing must
+            # be adapted to specific case and model return value
+            assert actual["o_match"] == expected[0]
+            assert actual["o_crc8"] == expected[1]
 
 

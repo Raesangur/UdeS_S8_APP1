@@ -14,14 +14,13 @@ async def CRC_7_1(dut):
     print("CRC.7.1: Validate CRC8 o_crc with model")
     print("**************************************************************************************")
 
-
     # Instanciation du MMC
-    inst_MMC_CRC8 = MMC_CRC8(dut.inst_packet_merger.inst_crc_calc, monitor_type = 0, test_type = 2)
+    inst_MMC_CRC8 = MMC_CRC8(dut.inst_packet_merger.inst_crc_calc)
     inst_MMC_CRC8.start()
     
-    dut.inst_tdc_channel_0.reset.value = 1
-    await cocotb.triggers.ClockCycles(dut.clk, 10, rising = True)
-    dut.inst_packet_merger.inst_crc_calc.reset.value = 0
+    #dut.inst_packet_merger.inst_crc_calc.reset.value = 1
+    #await cocotb.triggers.ClockCycles(dut.clk, 10, rising = True)
+    #dut.inst_packet_merger.inst_crc_calc.reset.value = 0
 
     # Initialisation of clock and input pins
     dut.reset.value = 1
@@ -29,7 +28,7 @@ async def CRC_7_1(dut):
     await cocotb.start(Clock(dut.clk, 10, units='ns').start())
     await cocotb.triggers.ClockCycles(dut.clk, 10, rising = True)
 
-    #dut.reset.value = 0
+    dut.reset.value = 0
 
     # Initialisation Driver and Sink for the dut UART RX/TX channels
     uart_driver = UartSource(dut.in_sig, baud=1000000, bits=8)

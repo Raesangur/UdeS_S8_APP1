@@ -50,18 +50,21 @@ cov_write_ack_twice : cover property(p_write_ack_twice);
 // cover group: log if read and write access occured for all
 // documented register address
 // Lab: this covergroup will not work properly. Explore why and update.
-covergroup covg_RegisterAccess
+covergroup covg_reg
     @(negedge cov_clk iff (!cov_reset && cov_readEnable || cov_writeEnable));
 	option.name		= "cov_RegisterAccess";
     readMode      : coverpoint cov_readEnable{bins rm[] = {[1:1]}; }
     writeMode     : coverpoint cov_writeEnable{bins wm[] = {[1:1]}; }
     addressSpace  : coverpoint cov_address{bins as[] = {[0:9]}; }
+    addressTime   : coverpoint cov_address{bins at[1] = {[10:$]}; }
 
     read_addressSpace  : cross readMode,  addressSpace;
     write_addressSpace : cross writeMode, addressSpace;
+
+    //data : coverpoint cov_data
 endgroup
 
-covg_RegisterAccess cov_userifCover = new();
+covg_reg cov_userifCover = new();
 
 
 

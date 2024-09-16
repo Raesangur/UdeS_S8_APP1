@@ -1,0 +1,9 @@
+Cadence Verisium Manager(64): 23.03-s002: (c) Copyright 1995-2023 Cadence Design Systems Inc - Simulator version: 23.09-s006 - Coverage engine version: 23.09-s006
+Starting gui mode
+vmanager: *I,runner.startingSession: Starting session /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/tests/example.vsif
+vmanager: *I,runner.sessionStarted: Session example_session.lacp3102.24_09_16_16_18_23_7178 started.
+vmanager: *I,session.delete.completed: "Deletion of session dir for session 'example_session.lacp3102.24_09_16_16_18_23_7178' has completed.
+vmanager: *I,runner.startingSession: Starting session /home/lacp3102/APP1/UdeS_S8_APP1/petit_pascal/verif/tests/example.vsif
+vmanager: *I,runner.sessionStarted: Session example_session.lacp3102.24_09_16_16_23_34_8138 started.
+vmanager: *I,MERGL1: The merged icc coverage cache was not reused due to different configuration or set of runs.
+vmanager: *I,MERGL1: The merged icc coverage cache was reused for analysis: /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/merged_ucds/default/1726518713341/merged_tests/icc_00000000_41c4304d.ucd(merged)

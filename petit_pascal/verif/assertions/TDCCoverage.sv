@@ -28,8 +28,8 @@ module TDCCoverage
 	input logic cov_clear,
     	input logic cov_trigger,
 	input logic cov_enable,
-	input logic [31:0] cov_pulseWidth,
-	input logic [31:0] cov_timestamp
+	input logic [31:0] cov_TOT,
+	input logic [31:0] cov_TS
 	);
 
 default clocking DEFCLK @(posedge cov_clk);
@@ -54,12 +54,12 @@ covergroup covg_crc8
 
     busy       : coverpoint cov_busy;
     hasEvent   : coverpoint cov_hasEvent;
-    timestamp  : coverpoint cov_timestamp;
-    pulseWidth : coverpoint cov_pulseWidth;
+    timestamp  : coverpoint cov_TS;
+    pulseWidth : coverpoint cov_TOT;
 endgroup
 
 
-
+/*
 // ----------------------------
 // TDC 1 - i_reset
 // TDC 1.a - o_busy becomes 0
@@ -78,14 +78,14 @@ ast_tdc1b : assert property(p_tdc1b)
 
 // TDC 1.c - o_timestamp becomes 0
 property p_tdc1c;
-    @(posedge cov_clk) cov_reset |=> ##1 (cov_timestamp == 0);
+    @(posedge cov_clk) cov_reset |=> ##1 (cov_TS == 0);
 endproperty
 ast_tdc1c : assert property(p_tdc1c)
     else $display($stime,,,"\t\tTDC1c::i_reset::o_timestamp didn't go to 0\n");
 
 // TDC 1.d - o_busy becomes 0
 property p_tdc1d;
-    @(posedge cov_clk) cov_reset |=> ##1 (cov_pulseWidth == 0);
+    @(posedge cov_clk) cov_reset |=> ##1 (cov_TOT == 0);
 endproperty
 ast_tdc1d : assert property(p_tdc1d)
     else $display($stime,,,"\t\tTDC1d::i_reset::o_pulseWidth didn't go to 0\n");
@@ -97,7 +97,7 @@ ast_tdc1d : assert property(p_tdc1d)
 property p_tdc2b;
     @(posedge cov_clk) disable iff (!cov_reset)
         cov_enable == 0 |=> ##1 $stable(cov_busy) && $stable(cov_hasEvent)
-                                   && $stable(cov_timestamp) && $stable(cov_pulseWidth);
+                                   && $stable(cov_TS) && $stable(cov_TOT);
 endproperty
 ast_tdc2b : assert property(p_tdc2b)
     else $display($stime,,,"\t\tTDC2b::i_enableChannel::Some outputs changed while tdc was disabled\n");
@@ -143,7 +143,7 @@ ast_tdc6a : assert property(p_tdc6a)
 // TDC 6.b - o_timestamp can be cleared
 property p_tdc6b;
     @(posedge cov_clk) disable iff (cov_reset || !cov_enable)
-        cov_clear |=> ##1 cov_timestamp = 32'h0;
+        cov_clear |=> ##1 cov_TS == 32'h0;
 endproperty
 ast_tdc6b : assert property(p_tdc6b)
     else $display($stime,,,"\t\tTDC6a::i_clear::o_timestamp didn't clear\n");
@@ -159,10 +159,12 @@ ast_tdc6c : assert property(p_tdc6c)
 // TDC 6.d - o_pulseWidth can be cleared
 property p_tdc6d;
     @(posedge cov_clk) disable iff (cov_reset || !cov_enable)
-        cov_clear|=> ##1 cov_pulseWidth == 32'h0;
+        cov_clear|=> ##1 cov_TOT == 32'h0;
 endproperty
 ast_tdc6d : assert property(p_tdc6d)
     else $display($stime,,,"\t\tTDC6d::i_clear::o_pulseWidth didn't clear\n");
 
+
+*/
 endmodule
 

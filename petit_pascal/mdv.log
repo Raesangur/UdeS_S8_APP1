@@ -8,3 +8,4 @@
 [INFO ] 2024-09-14 19:38:00 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 35851
 [INFO ] 2024-09-15 21:06:14 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 39235
 [ERROR] 2024-09-15 21:10:05 [com.cadence.mdv.vsofParser.VSofExceptionHandler] [chunk-processing-thread-pool-1] - vsof exception: Invalid attribute snap_path at /home/lacp3102/APP1/UdeS_S8_APP1/petit_pascal/verif/vmgr_db/chunks/projects/vmgr/of_sessions/example_session.lacp3102.24_09_15_17_09_43_5967/45_e14d8ff4-73a6-11ef-bfe8-9b6674a4ca09.chunk line 30
+[INFO ] 2024-09-16 16:04:48 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 41489

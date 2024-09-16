@@ -54,8 +54,8 @@ covergroup covg_crc8
 
     busy       : coverpoint cov_busy;
     hasEvent   : coverpoint cov_hasEvent;
-    timestamp  : coverpoint cov_timestamp  {bins dat[] = {[0:$]};}
-    pulseWidth : coverpoint cov_pulseWidth {bins dat[] = {[0:$]}}
+    timestamp  : coverpoint cov_timestamp;
+    pulseWidth : coverpoint cov_pulseWidth;
 endgroup
 
 
@@ -148,7 +148,7 @@ endproperty
 ast_tdc6b : assert property(p_tdc6b)
     else $display($stime,,,"\t\tTDC6a::i_clear::o_timestamp didn't clear\n");
 
-// TDC 6.c - o_hasEvent can be cleared
+// TDC 6.c - o_busy can be cleared
 property p_tdc6c;
     @(posedge cov_clk) disable iff (cov_reset || !cov_enable)
         cov_clear |=> ##1 !cov_busy;

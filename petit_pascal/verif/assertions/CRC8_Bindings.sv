@@ -43,9 +43,9 @@ covergroup covg_crc8
     @(posedge cov_clk);
 	option.name		= "cov_crc8";
     reset : coverpoint cov_reset;
-    valid : coverpoint cov_valid;   // CRC 2.a
-    last  : coverpoint cov_last;    // CRC 3.a
-    data  : coverpoint cov_data {bins dat[] = {[0:255]};} // CRC 4.a
+    valid : coverpoint cov_valid; // CRC 2.a
+    last  : coverpoint cov_last;  // CRC 3.a
+    data  : coverpoint cov_data;  // CRC 4.a
 
     rst_valid  : cross reset, valid;
     rst_last   : cross reset, last;
@@ -54,7 +54,7 @@ covergroup covg_crc8
 
     match : coverpoint cov_match;
     done  : coverpoint cov_done;
-    crc   : coverpoint cov_crc8 {bins dat[] = {[0:255]};} // CRC 7.a
+    crc   : coverpoint cov_crc8; // CRC 7.a
 
     match_done : cross match, done;
 endgroup

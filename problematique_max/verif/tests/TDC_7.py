@@ -16,25 +16,27 @@ async def TDC_7(dut):
     print("**************************************************************************************")
 
     # Instanciation du MMC
-    inst_MMC_TDC = MMC_TDC(dut.inst_tdc_channel_1, monitor_type = 1, test_type = 1)
-    inst_MMC_TDC.start()
+    #inst_MMC_TDC = MMC_TDC(dut.inst_tdc_channel_1, monitor_type = 1, test_type = 1)
+    #inst_MMC_TDC.start()
 
     # Initialisation of clock and input pins
-    #dut.reset.value = 1
-    #dut.in_sig.value = 1
-    #await cocotb.start(Clock(dut.clk, 10, units='ns').start())
-    #await cocotb.triggers.ClockCycles(dut.clk, 10, rising = True)
+    dut.reset.value = 1
+    await cocotb.start(Clock(dut.clk, 10, units='ns').start())
+    await cocotb.triggers.ClockCycles(dut.clk, 10, rising = True)
 
-    #dut.reset.value = 0
+    dut.reset.value = 0
     
     
-    #id_TDC1 = dut1.inst_tdc_channel_0.o_chanID.value
-    #id_TDC2 = dut.inst_tdc_channel_1.o_chanID.value
+    id_TDC0 = dut.inst_tdc_channel_0.o_chanID.value
+    id_TDC1 = dut.inst_tdc_channel_1.o_chanID.value
     
-    #print(f"TDC 1 id: {id_TDC1}")
-    #print(f"TDC 2 id: {id_TDC2}")
+    print(f"TDC 1 id: {id_TDC0}")
+    print(f"TDC 2 id: {id_TDC1}")
 
+    assert id_TDC0 == 0x0000
+    assert id_TDC1 == 0x0001
 
+    return 0
     # Initialisation Driver and Sink for the dut UART RX/TX channels
     #uart_driver = UartSource(dut.in_sig, baud=1000000, bits=8)
     #tdc2 = UartSource(dut.in_sig, baud=1000000, bits=8)
@@ -53,7 +55,7 @@ async def TDC_7(dut):
 
     #To get the type returned from a Task, you must call task.result()
     #packetSplitter = Task_returnMessage.result()
-    print(packetSplitter)
+    #print(packetSplitter)
     #random_data_value = build_command_message(0, 0xBADEFACEB00B, 0)
     #for i in range(10):
     #    random_data_value = secrets.token_bytes(6)

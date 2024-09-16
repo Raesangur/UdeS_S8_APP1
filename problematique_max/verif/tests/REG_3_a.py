@@ -103,7 +103,7 @@ async def REG_3_a(dut):
     print(f"[DEBUG] Task_returnMessage type : {type(packetSplitter)}")
     print(packetSplitter)
     print(hex(int(packetSplitter)))
-    assert hex(int(packetSplitter)) == hex(0x100000000000)
+    assert hex(int(packetSplitter)) == hex(0x800badeface)
 
     #######################################################
     # Bias Mode
@@ -137,14 +137,14 @@ async def REG_3_a(dut):
     print(f"[DEBUG] Task_returnMessage type : {type(packetSplitter)}")
     print(packetSplitter)
     print(hex(int(packetSplitter)))
-    assert hex(int(packetSplitter)) == hex(0x100000000000)
+    assert hex(int(packetSplitter)) == hex(0x800badeface)
 
 
     #######################################################
     # EnableCntRate
     ######################################################
     # Send Write command
-    reg9 = build_command_message(0x1, 0x2, 0x1)
+    reg9 = build_command_message(0x1, 0x2, 0xbadeface)
     print(f"[DEBUG] {hex(reg9)}")
     await uart_driver.write(reg9.buff)
     await uart_driver.wait()
@@ -171,7 +171,7 @@ async def REG_3_a(dut):
     print(f"[DEBUG] Task_returnMessage type : {type(packetSplitter)}")
     print(packetSplitter)
     print(hex(int(packetSplitter)))
-    assert hex(int(packetSplitter)) == hex(0x100000000000)
+    assert hex(int(packetSplitter)) == hex(0x800badeface)
 
 
 
@@ -179,7 +179,7 @@ async def REG_3_a(dut):
     # EnableEventCntRate
     ######################################################
     # Send Write command
-    reg9 = build_command_message(0x1, 0x3, 0x1)
+    reg9 = build_command_message(0x1, 0x3, 0xbadeface)
     print(f"[DEBUG] {hex(reg9)}")
     await uart_driver.write(reg9.buff)
     await uart_driver.wait()
@@ -206,7 +206,7 @@ async def REG_3_a(dut):
     print(f"[DEBUG] Task_returnMessage type : {type(packetSplitter)}")
     print(packetSplitter)
     print(hex(int(packetSplitter)))
-    assert hex(int(packetSplitter)) == hex(0x100000000000)
+    assert hex(int(packetSplitter)) == hex(0x800badeface)
 
 
     #######################################################
@@ -247,7 +247,7 @@ async def REG_3_a(dut):
     # SrcSelected
     ######################################################
     # Send Write command
-    reg9 = build_command_message(0x1, 0x5, 0x1)
+    reg9 = build_command_message(0x1, 0x5, 0xbadeface)
     print(f"[DEBUG] {hex(reg9)}")
     await uart_driver.write(reg9.buff)
     await uart_driver.wait()
@@ -277,11 +277,46 @@ async def REG_3_a(dut):
     assert hex(int(packetSplitter)) == hex(0x800badeface)
 
 
+    ######################################################
+    # ClearSyncFlag
+    ######################################################
+    # Send Write command
+    reg9 = build_command_message(0x1, 0x7, 0xbadeface)
+    print(f"[DEBUG] {hex(reg9)}")
+    await uart_driver.write(reg9.buff)
+    await uart_driver.wait()
+    crc8 = get_expected_crc(reg9.buff)
+    crc8bin = cocotb.binary.BinaryValue(value=crc8, n_bits=8, bigEndian=False)
+    await uart_driver.write(crc8bin.buff)
+    await uart_driver.wait()
+
+    # Send read command
+    reg9 = build_command_message(0x0, 0x7, 0x00000000)
+    print(f"[DEBUG] {hex(reg9)}")
+    await uart_driver.write(reg9.buff)
+    await uart_driver.wait()
+
+    # Send CRC
+    crc8 = get_expected_crc(reg9.buff)
+    crc8bin = cocotb.binary.BinaryValue(value=crc8, n_bits=8, bigEndian=False)
+    await uart_driver.write(crc8bin.buff)
+    await uart_driver.wait()
+
+    await Task_returnMessage
+
+    packetSplitter = Task_returnMessage.result()
+    print(f"[DEBUG] Task_returnMessage type : {type(packetSplitter)}")
+    print(packetSplitter)
+    print(hex(int(packetSplitter)))
+    assert hex(int(packetSplitter)) == hex(0x800badeface)
+
+
+
     #######################################################
     # ChannelEnableBits
     ######################################################
     # Send Write command
-    reg9 = build_command_message(0x1, 0x8, 0xb00b)
+    reg9 = build_command_message(0x1, 0x8, 0xbadeface)
     print(f"[DEBUG] {hex(reg9)}")
     await uart_driver.write(reg9.buff)
     await uart_driver.wait()
@@ -308,7 +343,7 @@ async def REG_3_a(dut):
     print(f"[DEBUG] Task_returnMessage type : {type(packetSplitter)}")
     print(packetSplitter)
     print(hex(int(packetSplitter)))
-    assert hex(int(packetSplitter)) == hex(0x800b00b)
+    assert hex(int(packetSplitter)) == hex(0x800badeface)
 
 
 

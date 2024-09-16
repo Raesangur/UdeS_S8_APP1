@@ -97,7 +97,7 @@ async def REG_2(dut):
     # Bias Mode
     ######################################################
     # Send read command
-    reg9 = build_command_message(0x0, 0x1, 0x00000000)
+    reg9 = build_command_message(0x0, 0x1, 0x0000)
     print(f"[DEBUG] {hex(reg9)}")
     await uart_driver.write(reg9.buff)
     await uart_driver.wait()
@@ -271,6 +271,7 @@ async def REG_2(dut):
     print(f"[DEBUG] {hex(reg9)}")
     await uart_driver.write(reg9.buff)
     await uart_driver.wait()
+
 
     # Send CRC
     crc8 = get_expected_crc(reg9.buff)

@@ -78,25 +78,23 @@ class MMC_REG:
             self.input_mon = DataValidMonitor_REG(
                 clk=self.dut.clk,
                 valid=self.dut.readEnable,
-                datas=dict(i_reset=self.dut.reset, i_trigger=self.dut.i_trigger, i_clear=self.dut.i_clear),
+                datas=dict(reset=self.dut.reset, readEnable=self.dut.readEnable, writeEnable=self.dut.writeEnable, address = self.dut.address, writeData = self.dut.writeData),
             )
-
             self.output_mon = DataValidMonitor_REG(
                 clk=self.dut.clk,
-                valid=self.dut.o_busy,
-                datas=dict(o_busy=self.dut.o_busy, o_chanID=self.dut.o_chanID, o_timestamp=self.dut.o_timestamp, o_pulseWidth=self.dut.o_pulseWidth, o_hasEvent = self.dut.o_hasEvent),        
+                valid=self.dut.readEnable,
+                datas=dict(writeAck=self.dut.writeAck, readData=self.dut.readData),        
             )
         if monitor_type == 1:
             self.input_mon = DataValidMonitor_REG(
                 clk=self.dut.clk,
                 valid=self.dut.writeEnable,
-                datas=dict(i_reset=self.dut.reset, i_trigger=self.dut.i_trigger, i_clear=self.dut.i_clear),
+                datas=dict(reset=self.dut.reset, readEnable=self.dut.readEnable, writeEnable=self.dut.writeEnable, address = self.dut.address, writeData = self.dut.writeData),
             )
-
             self.output_mon = DataValidMonitor_REG(
                 clk=self.dut.clk,
-                valid=self.dut.o_hasEvent,
-                datas=dict(o_busy=self.dut.o_busy, o_chanID=self.dut.o_chanID, o_timestamp=self.dut.o_timestamp, o_pulseWidth=self.dut.o_pulseWidth, o_hasEvent = self.dut.o_hasEvent),        
+                valid=self.dut.writeEnable,
+                datas=dict(writeAck=self.dut.writeAck, readData=self.dut.readData),        
             )
 
         self._checkercoro = None
@@ -140,11 +138,11 @@ class MMC_REG:
         while not test_done:
             # Reset Registre et tout les lire
             if self.test_id == 1:
-                #self.input_mon.valid.value = 0
-                #self.input_mon.data["i_trigger"].value = 1
-                await cocotb.triggers.ClockCycles(self.dut.clk, 1, rising = True)
-                data = await self.output_mon.values.get()
-                assert data["o_busy"] == 0
+                while not self.input_mon.values.empty():
+                    await cocotb.triggers.ClockCycles(self.dut.clk, 1, rising = True)
+                    data = await self.output_mon.values.get()
+                    assert data["readData"] == 0
+
 
             # SD2: Ecrire tout registre
             if self.test_id == 2:

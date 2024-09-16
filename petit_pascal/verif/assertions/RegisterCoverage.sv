@@ -61,12 +61,93 @@ covergroup covg_reg
     read_addressSpace  : cross readMode,  addressSpace;
     write_addressSpace : cross writeMode, addressSpace;
 
-    //data : coverpoint cov_data
 endgroup
 
 covg_reg cov_userifCover = new();
 
 
+
+// ----------------------------
+// REG 5 - writeAck
+property p_reg5a;
+    @(posedge cov_clk) disable iff cov_reset
+        $rose(cov_writeEnable) && (cov_address == 0) |=> ##1 cov_writeAck;
+endproperty
+cov_reg5a : cover property(p_reg5a);
+ast_reg5a : assert property(p_reg5a)
+    else $display($stime,,,"\t\tREG5a::writeAck::writeAck didn't respond at address 0\n");
+
+property p_reg5b;
+    @(posedge cov_clk) disable iff cov_reset
+        $rose(cov_writeEnable) && (cov_address == 1) |=> ##1 cov_writeAck;
+endproperty
+cov_reg5b : cover property(p_reg5b);
+ast_reg5b : assert property(p_reg5b)
+    else $display($stime,,,"\t\tREG5b::writeAck::writeAck didn't respond at address 1\n");
+
+property p_reg5c;
+    @(posedge cov_clk) disable iff cov_reset
+        $rose(cov_writeEnable) && (cov_address == 2) |=> ##1 cov_writeAck;
+endproperty
+cov_reg5c : cover property(p_reg5c);
+ast_reg5c : assert property(p_reg5c)
+    else $display($stime,,,"\t\tREG5c::writeAck::writeAck didn't respond at address 2\n");
+    
+property p_reg5d;
+    @(posedge cov_clk) disable iff cov_reset
+        $rose(cov_writeEnable) && (cov_address == 3) |=> ##1 cov_writeAck;
+endproperty
+cov_reg5d : cover property(p_reg5d);
+ast_reg5d : assert property(p_reg5d)
+    else $display($stime,,,"\t\tREG5d::writeAck::writeAck didn't respond at address 3\n");
+
+property p_reg5e;
+    @(posedge cov_clk) disable iff cov_reset
+        $rose(cov_writeEnable) && (cov_address == 4) |=> ##1 cov_writeAck;
+endproperty
+cov_reg5e : cover property(p_reg5e);
+ast_reg5e : assert property(p_reg5e)
+    else $display($stime,,,"\t\tREG5e::writeAck::writeAck didn't respond at address 4\n");
+
+property p_reg5f;
+    @(posedge cov_clk) disable iff cov_reset
+        $rose(cov_writeEnable) && (cov_address == 5) |=> ##1 cov_writeAck;
+endproperty
+cov_reg5f : cover property(p_reg5f);
+ast_reg5f : assert property(p_reg5f)
+    else $display($stime,,,"\t\tREG5f::writeAck::writeAck didn't respond at address 5\n");
+
+property p_reg5g;
+    @(posedge cov_clk) disable iff cov_reset
+        $rose(cov_writeEnable) && (cov_address == 6) |=> ##1 !cov_writeAck;
+endproperty
+cov_reg5g : cover property(p_reg5g);
+ast_reg5g : assert property(p_reg5g)
+    else $display($stime,,,"\t\tREG5g::writeAck::writeAck shouldn't respond at address 6\n");
+
+property p_reg5h;
+    @(posedge cov_clk) disable iff cov_reset
+        $rose(cov_writeEnable) && (cov_address == 7) |=> ##1 cov_writeAck;
+endproperty
+cov_reg5h : cover property(p_reg5h);
+ast_reg5h : assert property(p_reg5h)
+    else $display($stime,,,"\t\tREG5g::writeAck::writeAck didn't respond at address 7\n");
+
+property p_reg5i;
+    @(posedge cov_clk) disable iff cov_reset
+        $rose(cov_writeEnable) && (cov_address == 8) |=> ##1 cov_writeAck;
+endproperty
+cov_reg5i : cover property(p_reg5i);
+ast_reg5i : assert property(p_reg5i)
+    else $display($stime,,,"\t\tREG5i::writeAck::writeAck didn't respond at address 8\n");
+
+property p_reg5j;
+    @(posedge cov_clk) disable iff cov_reset
+        $rose(cov_writeEnable) && (cov_address == 9) |=> ##1 !cov_writeAck;
+endproperty
+cov_reg5j : cover property(p_reg5j);
+ast_reg5j : assert property(p_reg5j)
+    else $display($stime,,,"\t\tREG5j::writeAck::writeAck shouldn't respond at address 9\n");
 
 
 endmodule

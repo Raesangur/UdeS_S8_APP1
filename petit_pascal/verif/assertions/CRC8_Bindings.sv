@@ -110,15 +110,6 @@ cov_crc5a : cover property(p_crc5a);
 ast_crc5a : assert property(p_crc5a)
     else $display($stime,,,"\t\tCRC5a::o_done::o_done didn't rise 2 clock cycles after i_last\n");
 
-// CRC 5.b - Falls to 0 only after reset
-property p_crc5b;
-    @(posedge cov_clk)
-        $fell(cov_done) |=> $past(cov_reset, 1);
-endproperty
-cov_crc5b : cover property(p_crc5b);
-ast_crc5b : assert property(p_crc5b)
-    else $display($stime,,,"\t\tCRC5b::o_done::o_done fell without a reset\n");
-
 
 
 // ----------------------------

@@ -11,35 +11,29 @@ from MMC_TDC import MMC_TDC
 
 # Test 
 @cocotb.test()
-async def REG_2(dut):
+async def TDC_11(dut):
     print("**************************************************************************************")
-    print("TDC.12.: The i_trigger time pulse is capped at 5us")
+    print("TDC.11: Minimum i_trigger pulse width specification")
     print("**************************************************************************************")
-    inst_MMC_REG = MMC_REG(dut.register_dut, monitor_type = 1, test_id = 1)
-    inst_MMC_REG.start()
-    # Initialisation of clock and input pins
-    await cocotb.start(Clock(dut.clk, 10, units='ns').start())
-    dut.inst_tdc_channel_0.o_hasEvent.value = 0
-    dut.inst_tdc_channel_0.o_pulseWidth.value = 0
-    dut.inst_tdc_channel_0.o_timestamp.value = 0
-    dut.inst_tdc_channel_0.i_trigger.value = 0
-    dut.inst_tdc_channel_0.i_enable_channel.value = 0
-    await cocotb.triggers.ClockCycles(dut.clk, 1, rising = True)
+    inst_MMC_TDC = MMC_TDC(dut.inst_tdc_channel_0,monitor_type = 1, test_id = 4)
+    inst_MMC_TDC.start()
+    for i in range(10):
+        #Generate random pulse length:
+        Pulse_time = random.randint(1,500-1)*40 #40ps cycles
 
-    #System Reset
-    dut.reset.value = 1
-    await cocotb.triggers.ClockCycles(dut.clk, 1, rising = True)
-    dut.reset.value = 0
-    await cocotb.triggers.ClockCycles(dut.clk, 1, rising = True)
-    
-    for i in range(0, 10):
-        reg_cmd = uv.build_command_message(0x0, i, 0x00000000)
-        crc8 = uv.get_expected_crc(reg_cmd.buff)
-        crc8bin = cocotb.binary.BinaryValue(value=crc8, n_bits=8, bigEndian=False)
-        await uart_driver.write(reg9.buff)
-        await uart_driver.wait()
-        await uart_driver.write(crc8bin.buff)
-        await uart_driver.wait()
+        # Initialisation of clock and input pins
+        await cocotb.start(Clock(dut.clk, 10, units='ns').start())
+        dut.inst_tdc_channel_0.o_pulseWidth.value = 0
+        dut.inst_tdc_channel_0.o_timestamp.value = 0
+        dut.inst_tdc_channel_0.i_trigger.value = 0
+        dut.inst_tdc_channel_0.i_enable_channel.value = 0
+
+        #System Reset
+        dut.reset.value = 1
+        dut.inst_tdc_channel_0.reset.value = 1
+        await cocotb.triggers.ClockCycles(dut.clk, 1, rising = True)
+        dut.reset.value = 0
+        dut.inst_tdc_channel_0.reset.value = 0
         
         #TDC Clear
         dut.inst_tdc_channel_0.i_clear.value = 1
@@ -67,4 +61,4 @@ async def REG_2(dut):
         print("------------------------------------------------")
         print(f"Pulse Length excitation {i}: {Pulse_time/1000}ns")
 
-        await cocotb.triggers.ClockCycles(dut.clk, 10000, rising = True)
+        await cocotb.triggers.ClockCycles(dut.clk, 1000, rising = True)

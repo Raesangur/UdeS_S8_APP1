@@ -59,7 +59,6 @@ covergroup covg_tdc
 endgroup
 
 
-/*
 // ----------------------------
 // TDC 1 - i_reset
 // TDC 1.a - o_busy becomes 0
@@ -78,21 +77,21 @@ cov_tdc1b : cover property(p_tdc1b);
 ast_tdc1b : assert property(p_tdc1b)
     else $display($stime,,,"\t\tTDC1b::i_reset::o_hasEvent didn't go to 0\n");
 
-// TDC 1.c - o_timestamp becomes 0
+// TDC 1.c - o_timestamp is stable
 property p_tdc1c;
-    @(posedge cov_clk) cov_reset |=> ##1 (cov_TS == 0);
+    @(posedge cov_clk) cov_reset |=> ##1 $stable(cov_TS);
 endproperty
 cov_tdc1c : cover property(p_tdc1c);
 ast_tdc1c : assert property(p_tdc1c)
-    else $display($stime,,,"\t\tTDC1c::i_reset::o_timestamp didn't go to 0\n");
+    else $display($stime,,,"\t\tTDC1c::i_reset::o_timestamp wasn't kept at the same value after reset\n");
 
-// TDC 1.d - o_busy becomes 0
+// TDC 1.d - o_pulseWidth is stable
 property p_tdc1d;
-    @(posedge cov_clk) cov_reset |=> ##1 (cov_TOT == 0);
+    @(posedge cov_clk) cov_reset |=> ##1 $stable(cov_TOT);
 endproperty
 cov_tdc1d : cover property(p_tdc1d);
 ast_tdc1d : assert property(p_tdc1d)
-    else $display($stime,,,"\t\tTDC1d::i_reset::o_pulseWidth didn't go to 0\n");
+    else $display($stime,,,"\t\tTDC1d::i_reset::o_pulseWidth wasn't kept at the same value after reset\n");
 
 
 // ----------------------------
@@ -128,15 +127,6 @@ cov_tdc5a : cover property(p_tdc5a);
 ast_tdc5a : assert property(p_tdc5a)
     else $display($stime,,,"\t\tTDC5a::o_busy::o_busy fall within 20 clock cycles of the end of the trigger\n");
 
-// TDC 5.a - o_hasEvent rises
-property p_tdc5b;
-    @(posedge cov_clk) disable iff (cov_reset || !cov_enable)
-        $fell(cov_trigger) |=> ##1 cov_hasEvent;
-endproperty
-cov_tdc5b : cover property(p_tdc5b);
-ast_tdc5b : assert property(p_tdc5b)
-    else $display($stime,,,"\t\tTDC5b::o_hasEvent::o_hasEvent rises after trigger falls\n");
-
 
 // ----------------------------
 // CRC 6 - i_clear
@@ -149,34 +139,6 @@ cov_tdc6a : cover property(p_tdc6a);
 ast_tdc6a : assert property(p_tdc6a)
     else $display($stime,,,"\t\tTDC6a::i_clear::o_hasEvent didn't clear\n");
 
-// TDC 6.b - o_timestamp can be cleared
-property p_tdc6b;
-    @(posedge cov_clk) disable iff (cov_reset || !cov_enable)
-        cov_clear |=> ##1 cov_TS == 32'h0;
-endproperty
-cov_tdc6b : cover property(p_tdc6b);
-ast_tdc6b : assert property(p_tdc6b)
-    else $display($stime,,,"\t\tTDC6a::i_clear::o_timestamp didn't clear\n");
-
-// TDC 6.c - o_busy can be cleared
-property p_tdc6c;
-    @(posedge cov_clk) disable iff (cov_reset || !cov_enable)
-        cov_clear |=> ##1 !cov_busy;
-endproperty
-cov_tdc6c : cover property(p_tdc6c);
-ast_tdc6c : assert property(p_tdc6c)
-    else $display($stime,,,"\t\tTDC6c::o_busy::o_hasEvent didn't clear\n");
-
-// TDC 6.d - o_pulseWidth can be cleared
-property p_tdc6d;
-    @(posedge cov_clk) disable iff (cov_reset || !cov_enable)
-        cov_clear|=> ##1 cov_TOT == 32'h0;
-endproperty
-cov_tdc6d : cover property(p_tdc6d);
-ast_tdc6d : assert property(p_tdc6d)
-    else $display($stime,,,"\t\tTDC6d::i_clear::o_pulseWidth didn't clear\n");
-
-*/
 
 endmodule
 

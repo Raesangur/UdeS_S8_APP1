@@ -7,39 +7,31 @@ from cocotb.log import SimLog
 from cocotb.handle import SimHandleBase
 import secrets
 import random
-from MMC_TDC import MMC_TDC
 
 # Test 
 @cocotb.test()
-async def REG_2(dut):
+async def TDC_5_d(dut):
     print("**************************************************************************************")
-    print("TDC.12.: The i_trigger time pulse is capped at 5us")
+    print("TDC.5.d: The TDC measure the correct pulse length")
     print("**************************************************************************************")
-    inst_MMC_REG = MMC_REG(dut.register_dut, monitor_type = 1, test_id = 1)
-    inst_MMC_REG.start()
-    # Initialisation of clock and input pins
-    await cocotb.start(Clock(dut.clk, 10, units='ns').start())
-    dut.inst_tdc_channel_0.o_hasEvent.value = 0
-    dut.inst_tdc_channel_0.o_pulseWidth.value = 0
-    dut.inst_tdc_channel_0.o_timestamp.value = 0
-    dut.inst_tdc_channel_0.i_trigger.value = 0
-    dut.inst_tdc_channel_0.i_enable_channel.value = 0
-    await cocotb.triggers.ClockCycles(dut.clk, 1, rising = True)
 
-    #System Reset
-    dut.reset.value = 1
-    await cocotb.triggers.ClockCycles(dut.clk, 1, rising = True)
-    dut.reset.value = 0
-    await cocotb.triggers.ClockCycles(dut.clk, 1, rising = True)
-    
-    for i in range(0, 10):
-        reg_cmd = uv.build_command_message(0x0, i, 0x00000000)
-        crc8 = uv.get_expected_crc(reg_cmd.buff)
-        crc8bin = cocotb.binary.BinaryValue(value=crc8, n_bits=8, bigEndian=False)
-        await uart_driver.write(reg9.buff)
-        await uart_driver.wait()
-        await uart_driver.write(crc8bin.buff)
-        await uart_driver.wait()
+    for i in range(10):
+        #Generate random pulse length:
+        Pulse_time = random.randint(5000,125000)*40
+
+        # Initialisation of clock and input pins
+        await cocotb.start(Clock(dut.clk, 10, units='ns').start())
+        dut.inst_tdc_channel_0.o_pulseWidth.value = 0
+        dut.inst_tdc_channel_0.o_timestamp.value = 0
+        dut.inst_tdc_channel_0.i_trigger.value = 0
+        dut.inst_tdc_channel_0.i_enable_channel.value = 0
+
+        #System Reset
+        dut.reset.value = 1
+        dut.inst_tdc_channel_0.reset.value = 1
+        await cocotb.triggers.ClockCycles(dut.clk, 1, rising = True)
+        dut.reset.value = 0
+        dut.inst_tdc_channel_0.reset.value = 0
         
         #TDC Clear
         dut.inst_tdc_channel_0.i_clear.value = 1
@@ -60,11 +52,14 @@ async def REG_2(dut):
         #We Deassert the i_trigger and wait for o_busy to deassert
         dut.inst_tdc_channel_0.i_trigger.value = 0
         #await cocotb.triggers.FallingEdge(dut.inst_tdc_channel_0.o_hasEvent)
-        
-        #await cocotb.triggers.ClockCycles(dut.clk, 100, rising = True)
+        await cocotb.triggers.ClockCycles(dut.clk, 1000, rising = True)
 
         pulse_time = dut.inst_tdc_channel_0.o_pulseWidth.value
         print("------------------------------------------------")
-        print(f"Pulse Length excitation {i}: {Pulse_time/1000}ns")
+        print(f"Pulse Length {i}: {Pulse_time}ps")
+        print(f"Pulse Length data {i}: {pulse_time}")
+        print(f"Pulse Length  measured {i}: {pulse_time*40}ps")
+        
 
-        await cocotb.triggers.ClockCycles(dut.clk, 10000, rising = True)
+        #We validate time pulse is correct
+        assert pulse_time*40 == Pulse_time

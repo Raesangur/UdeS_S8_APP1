@@ -1,0 +1,4 @@
+imc: *I,imc.tool.cov.version.diff: "There is a difference between the IMC tool version 23.03 and the coverage version 23.09-s006"
+IMC(64): 23.03-s002: (c) Copyright 1995-2023 Cadence Design Systems Inc - Simulator version: 23.09-s006 - Coverage engine version: 23.09-s006
+Starting gui mode
+imc: *I,RUNLD: Successfully loaded run /home/lacp3102/APP1/UdeS_S8_APP1/petit_pascal/simdir/sim_build/cov_work/scope/CRC_7_1.

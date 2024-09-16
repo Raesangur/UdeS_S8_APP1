@@ -1,0 +1,29 @@
+vmanager: *I,MERGL1: Preparing icc target model ...
+vmanager: *I,MERGL1: Doing model union ...
+vmanager: *I,MERGL2:   With primary run (/home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/model_dir): /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/model_dir/icc_00000000_41c4304d.ucm
+vmanager: *I,MERGL1: Target model generated successfully.
+vmanager: *I,MERGL1: Projecting data into the target model ...
+vmanager: *I,MERGL2:   /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/chain_0/example_group/run_1/sim_build/cov_work/scope/CRC_7_1:
+vmanager: *I,MERGL3:       Data is projected in to the target model.
+vmanager: *I,MERGL2:   /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/chain_0/example_group/run_4/sim_build/cov_work/scope/TDC_2_a:
+vmanager: *I,MERGL3:       Data is projected in to the target model.
+vmanager: *I,MERGL2:   /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/chain_0/example_group/run_7/sim_build/cov_work/scope/TDC_7:
+vmanager: *I,MERGL3:       Data is projected in to the target model.
+vmanager: *I,MERGL2:   /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/chain_0/example_group/run_9/sim_build/cov_work/scope/TDC_12_b:
+vmanager: *I,MERGL3:       Data is projected in to the target model.
+vmanager: *I,MERGL1: Projecting data into the target model ...
+vmanager: *I,MERGL2:   /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/chain_0/example_group/run_2/sim_build/cov_work/scope/REG_1:
+vmanager: *I,MERGL3:       Data is projected in to the target model.
+vmanager: *I,MERGL2:   /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/chain_0/example_group/run_3/sim_build/cov_work/scope/REG_2:
+vmanager: *I,MERGL3:       Data is projected in to the target model.
+vmanager: *I,MERGL2:   /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/chain_0/example_group/run_5/sim_build/cov_work/scope/TDC_2_d:
+vmanager: *I,MERGL3:       Data is projected in to the target model.
+vmanager: *I,MERGL2:   /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/chain_0/example_group/run_6/sim_build/cov_work/scope/TDC_2_e:
+vmanager: *I,MERGL3:       Data is projected in to the target model.
+vmanager: *I,MERGL2:   /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/chain_0/example_group/run_8/sim_build/cov_work/scope/TDC_11:
+vmanager: *I,MERGL3:       Data is projected in to the target model.
+vmanager: *I,MERGL2:   /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/chain_0/example_group/run_10/sim_build/cov_work/scope/TDC_12_c:
+vmanager: *I,MERGL3:       Data is projected in to the target model.
+vmanager: *I,MERGL1: Writing icc model to /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/merged_ucds/default/1726518713341/icc_00000000_41c4304d.ucm(merged)
+vmanager: *I,MERGL1: Writing icc data to /home/lacp3102/APP1/UdeS_S8_APP1/problematique_max/verif/regression_area/example_session.lacp3102.24_09_16_16_23_34_8138/merged_ucds/default/1726518713341/merged_tests/icc_00000000_41c4304d.ucd(merged)
+vmanager: *I,coverage.merge_op_done_no_warns: Merge operation (session runs merge) is done without any conflicts.

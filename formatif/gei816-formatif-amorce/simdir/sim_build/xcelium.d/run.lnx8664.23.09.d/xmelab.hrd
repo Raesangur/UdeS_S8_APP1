@@ -1,0 +1,10 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-LOADVPI
+/usr/local/lib64/python3.9/site-packages/cocotb/libs/libcocotbvpi_ius.so:vlog_startup_routines_bootstrap
+-ACCESS
++rwc
+
+top

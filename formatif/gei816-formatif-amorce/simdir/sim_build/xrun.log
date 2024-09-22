@@ -1,0 +1,75 @@
+xrun(64): 23.09-s006: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s006: Started on Sep 22, 2024 at 18:02:21 EDT
+xrun
+	-64
+	-R
+	-nowarn COVFHT
+	-nowarn COVCGN
+	-nowarn COVUTA
+	-nowarn ICFCLD
+	-nowarn WSEM2009
+	-input /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/misc_commands.tcl
+	-run
+	-exit
+	-seed random
+Loading snapshot worklib.top:sv .................... Done
+SVSEED set randomly from command line: -357672712
+xcelium> source /mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/xcelium/files/xmsimrc
+xcelium> ########################################################################
+xcelium> ## Author  :    Marc-Andre Tetrault
+xcelium> ## Project :    Verification Primer
+xcelium> ##
+xcelium> ## Universite de Sherbrooke
+xcelium> ########################################################################
+xcelium> #
+xcelium> # Purpose   :   Misc Commands sent to simulator
+xcelium> ########################################################################
+xcelium> 
+xcelium> 
+xcelium> # get the seed. Reference: "SystemVerilog Reference" from Cadence Help tool (cdnshelp)
+xcelium> set RetrievedSeed [set svseed]
+-357672712
+xcelium> puts "The SystemVerilog seed is $RetrievedSeed"
+The SystemVerilog seed is -357672712
+xcelium> 
+xcelium> # set severity_pack_assert_off {warning}
+xcelium> # set pack_assert_off {  numeric_std }
+xcelium> 
+xcelium> # set assert_stop_level never
+xcelium> run
+ERROR:          VHPI       NOTOTO
+         Can't get handle to object of type vhpiBaseType from a reference handle of type vhpiCompInstStmtK.
+        /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/top.sv, 20: 
+ERROR:          VHPI       NOTOTO
+         Can't get handle to object of type vhpiSubtype from a reference handle of type vhpiCompInstStmtK.
+        /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/top.sv, 20: 
+ERROR:          VHPI       NOTOTO
+         Can't get handle to object of type vhpiBaseType from a reference handle of type vhpiCompInstStmtK.
+        /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/topvhdl.vhd, 104: 
+ERROR:          VHPI       NOTOTO
+         Can't get handle to object of type vhpiSubtype from a reference handle of type vhpiCompInstStmtK.
+        /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/topvhdl.vhd, 104: 
+ERROR:          VHPI       NOTOTO
+         Can't get handle to object of type vhpiPrefix from a reference handle of type vhpiPortDeclK.
+        /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/sqrt_conv.vhd, 14: 
+ERROR:          VHPI       NOTOTO
+         Can't get handle to object of type vhpiPrefix from a reference handle of type vhpiPortDeclK.
+        /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/sqrt_conv.vhd, 18: 
+ERROR:          VHPI       VHUNIMP
+         The property or method vhpiElemType has not been implemented yet.
+        /mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/inca/files/IEEE.src/numeric_std.vhd, 65: 
+ERROR:          VHPI       NOTOTO
+         Can't get handle to object of type vhpiPrefix from a reference handle of type vhpiPortDeclK.
+        /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/sqrt_conv.vhd, 16: 
+ERROR:          VHPI       NOTOTO
+         Can't get handle to object of type vhpiPrefix from a reference handle of type vhpiPortDeclK.
+        /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/sqrt_conv.vhd, 19: 
+ERROR:          VHPI       VHUNIMP
+         The property or method vhpiElemType has not been implemented yet.
+        /mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/inca/files/IEEE.src/numeric_std.vhd, 65: 
+ERROR:          VHPI       NOTOTO
+         Can't get handle to object of type vhpiPrefix from a reference handle of type vhpiPortDeclK.
+        /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/sqrt_conv.vhd, 20: 
+Simulation complete via $finish(1) at time 61700001 PS + 0
+xcelium> exit
+TOOL:	xrun(64)	23.09-s006: Exiting on Sep 22, 2024 at 18:02:23 EDT  (total: 00:00:02)

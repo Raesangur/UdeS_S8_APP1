@@ -1,0 +1,29 @@
+----------------------------------------------------------------
+Sun Sep 22 16:51:57 EDT 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (exported): instance a816c00e-0192-1b81-61e3-ffffadf3c6d3 
+on database directory /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/vmgr_db/vmgr.db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@74589991 
+Loaded from file:/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/vmgr/java/derby-10.15.2.0-vManager.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.3+7
+user.dir=/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.16.1.el8_10.x86_64
+derby.system.home=/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/vmgr_db
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sun Sep 22 16:52:42 EDT 2024:
+Shutting down instance a816c00e-0192-1b81-61e3-ffffadf3c6d3 on database directory /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/vmgr_db/vmgr.db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@74589991 
+----------------------------------------------------------------
+Sun Sep 22 16:52:46 EDT 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (exported): instance 8ec972a7-0192-1b81-61e3-ffffadf3c6d3 
+on database directory /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/vmgr_db/vmgr.db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@74589991 
+Loaded from file:/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/vmgr/java/derby-10.15.2.0-vManager.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.3+7
+user.dir=/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.16.1.el8_10.x86_64
+derby.system.home=/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/vmgr_db
+Database Class Loader started - derby.database.classpath=''

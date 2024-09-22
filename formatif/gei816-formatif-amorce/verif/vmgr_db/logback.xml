@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="20 seconds">
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} [%c] [%t] - %m%n</pattern>
+        </encoder>
+        <filter class="com.cadence.ufi.util.logging.FatalMarkerFilter"/>
+    </appender>
+    <appender name="ROLLINGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>mdv.log</File>
+        <encoder>
+            <pattern>[%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} [%c] [%t] - %m%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <maxIndex>1</maxIndex>
+            <FileNamePattern>mdv.log.%i</FileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>500KB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+    <logger name="org.hibernate.engine.internal.StatisticalLoggingSessionEventListener" level="INFO"/>
+    <logger name="com.hazelcast.instance.impl.HazelcastInstanceFactory" level="ERROR"/>
+    <logger name="com.hazelcast.core.LifecycleService" level="INFO"/>
+    <logger name="com.cadence.mdv.rest.swagger.LiveDocsAPIFeature" level="INFO"/>
+    <logger name="org.hibernate.cfg.annotations.reflection.JPAOverridenAnnotationReader" level="ERROR"/>
+    <logger name="com.cadence.mdv.bl.impl.core.blNative.BLNative" level="INFO"/>
+    <logger name="com.cadence.mdv.imc.Main" level="INFO"/>
+    <logger name="com.cadence.mdv.imc.vapi.ProxyWebSocketClient" level="INFO"/>
+    <logger name="com.hazelcast.internal.cluster.ClusterService" level="INFO"/>
+    <logger name="com.cadence.mdv.imc.micro_agent.MicroAgentSupport" level="INFO"/>
+    <logger name="com.cadence.mdv.services.multitenant.MultiTenantServiceImpl" level="INFO"/>
+    <logger name="com.cadence.mdv.services.cloud_burst.CloudBurstSupport" level="WARN"/>
+    <root level="ERROR">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ROLLINGFILE"/>
+    </root>
+</configuration>

@@ -1,0 +1,1 @@
+-f /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/simdir/sim_build/xcelium.d/run.lnx8664.23.09.d/xmelab.args -CHECK_VERSION "TOOL:	xrun(64)	23.09-s006" -LOG_FD 4 -reinvoke ./xcelium.d/run.lnx8664.23.09.d/.cdssvbind/stf_000f578f_2b0a1283.txt -symreinvoke extbind_reinvoke -nocopyright -append_log 

@@ -1,0 +1,6 @@
+Library worklib;
+vunit cds_psl1 (SQRT_CONV(BEHAV)) {
+inst_sqrt_conv_bindings : entity worklib.sqrt_conv_bindings(sv) port map (cov_reset => reset, cov_clk => clk, cov_arg => arg, cov_arg_valid => arg_valid, cov_sqrt_valid => sqrt_valid_internal, cov_sqrt_res => r_sqrt_res);
+
+}
+

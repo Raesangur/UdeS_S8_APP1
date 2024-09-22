@@ -1,0 +1,95 @@
+session_output example_session.lacp3102.24_09_22_16_53_45_0377 {
+	session_dir: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377";
+	original_session_dir: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377";
+	top_dir: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/..";
+	vsof: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/example_session.vsof";
+	chain_id: "0";
+	runs_in_session: "3";
+	total_runs_in_session: "3";
+	session_start_time: "1727038425";
+	session_log_file: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/vm_brun.log";
+	parsed_vsif: "parsed_example_session.lacp3102.24_09_22_16_53_45_0377.vsif";
+	full_title: "example_session";
+	owner: "lacp3102";
+	launched_with_runner2_vmgr: "TRUE";
+	enable_session_recovery_vmgr: "false";
+	original_vsif: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/tests/example.vsif";
+	drm: "parallel local";
+	max_runs_in_parallel: "2";
+	name: "example_session.lacp3102.24_09_22_16_53_45_0377";
+	queuing_policy: "vsif_order";
+	session_status: "in_progress";
+}
+
+run 1 {
+	full_title: "example_session/example_group/q1a";
+	original_test_path: "___example_group___q1a";
+	seed: "random";
+	sv_seed: "random";
+	e_seed: "random";
+	drm: "parallel local";
+	estimated_duration_vmgr: "900";
+	run_mode: "batch";
+	run_script: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh";
+	scan_script: "vm_scan.pl ius.flt shell.flt";
+	test_group_name: "example_group";
+	chain_id: "0";
+	run_dir: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/example_group/run_1";
+	drm_job_name: "example_session.lacp3102.24_09_22_16_53_45_0377_example_session___example_group___q1a__run_1";
+	estimated_duration_vmgr: "900";
+	job_status: "waiting";
+	drm_job_status: "PROCESSING";
+	pre_group_script: "";
+	post_group_script: "";
+	session_log_file: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/vm_brun.log";
+	vsif: "25@/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/tests/example.vsif";
+}
+
+run 2 {
+	full_title: "example_session/example_group/q1b";
+	original_test_path: "___example_group___q1b";
+	seed: "random";
+	sv_seed: "random";
+	e_seed: "random";
+	drm: "parallel local";
+	estimated_duration_vmgr: "900";
+	run_mode: "batch";
+	run_script: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh";
+	scan_script: "vm_scan.pl ius.flt shell.flt";
+	test_group_name: "example_group";
+	chain_id: "0";
+	run_dir: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/example_group/run_2";
+	drm_job_name: "example_session.lacp3102.24_09_22_16_53_45_0377_example_session___example_group___q1b__run_2";
+	estimated_duration_vmgr: "900";
+	job_status: "waiting";
+	drm_job_status: "PROCESSING";
+	pre_group_script: "";
+	post_group_script: "";
+	session_log_file: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/vm_brun.log";
+	vsif: "26@/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/tests/example.vsif";
+}
+
+run 3 {
+	full_title: "example_session/example_group/q1b";
+	original_test_path: "___example_group___q1b";
+	seed: "random";
+	sv_seed: "random";
+	e_seed: "random";
+	drm: "parallel local";
+	estimated_duration_vmgr: "900";
+	run_mode: "batch";
+	run_script: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh";
+	scan_script: "vm_scan.pl ius.flt shell.flt";
+	test_group_name: "example_group";
+	chain_id: "0";
+	run_dir: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/example_group/run_3";
+	drm_job_name: "example_session.lacp3102.24_09_22_16_53_45_0377_example_session___example_group___q1b__run_3";
+	estimated_duration_vmgr: "900";
+	job_status: "waiting";
+	drm_job_status: "PROCESSING";
+	pre_group_script: "";
+	post_group_script: "";
+	session_log_file: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/vm_brun.log";
+	vsif: "26@/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/tests/example.vsif";
+}
+

@@ -1,0 +1,21 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-XLMODE
+./xcelium.d/run.lnx8664.23.09.d
+-RUNMODE
+-V93
+/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/sqrt_conv.vhd
+-V93
+/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/uart_rx.vhd
+-V93
+/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/uart_tx.vhd
+-V93
+/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/topvhdl.vhd
+-CDSLIB
+./xcelium.d/run.lnx8664.23.09.d/cdsrun.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.23.09.d/hdlrun.var
+-MESSAGES
+-UPDATE

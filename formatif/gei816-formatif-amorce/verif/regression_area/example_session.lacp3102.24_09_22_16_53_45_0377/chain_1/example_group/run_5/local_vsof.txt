@@ -1,0 +1,99 @@
+extend 5 {
+	user_time: <text>2370</text>;
+	system_time: <text>1165</text>;
+	cpu_time: <text>3535</text>;
+	simulation_time: <text>0</text>;
+}
+extend 5 {
+	failure RUN {
+		description: <text>run 5 script '/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh' exited with exit code 1</text>;
+		severity: <text>critical</text>;
+		reference: <text>190@/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/local_log.log</text>;
+		failure_source_type_vmgr: <text>run</text>;
+	}
+}
+
+extend 5 {
+        end_time : <text>1727038556</text>;
+        engine : <text>xmsim</text>;
+        log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/sim_build/xrun.log<__SEPARATOR__>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/sim_build/xrun.log<__SEPARATOR__>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/sim_build/xrun.log<__SEPARATOR__>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/sim_build/cov_work/scope/q1b/xrun.log<__SEPARATOR__>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/local_log.log<__SEPARATOR__>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/local_log.log</text>;
+        parent_run : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/example_session.vsof:example_session.lacp3102.24_09_22_16_53_45_0377/example_group/q1b@4</text>;
+        run_id : 5;
+        run_type : <text>simulation</text>;
+        simulation_time : 0;
+        simulator : <text>xmvlog</text>;
+        sv_seed : 1004838251;
+        verification_scope : <text>default</text>;
+        snap_path: <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/sim_build/xcelium.d</text>;
+
+        filter "xmvlog" {
+                filter_files : <text>cdns_sim.flt ovm_sv_lib.flt</text>;
+                filter_id : <text>xmvlog</text>;
+                log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/sim_build/xrun.log</text>;
+        }
+
+        filter "xmvhdl" {
+                filter_files : <text>cdns_sim.flt ovm_sv_lib.flt</text>;
+                filter_id : <text>xmvhdl</text>;
+                log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/sim_build/xrun.log</text>;
+        }
+
+        filter "xmelab" {
+                filter_files : <text>cdns_sim.flt ovm_sv_lib.flt</text>;
+                filter_id : <text>xmelab</text>;
+                log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/sim_build/xrun.log</text>;
+        }
+
+        filter "xmsim" {
+                filter_files : <text>cdns_sim.flt ovm_sv_lib.flt</text>;
+                filter_id : <text>xmsim</text>;
+                log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/sim_build/cov_work/scope/q1b/xrun.log</text>;
+        }
+
+        coverage_model "xmsim" {
+                tool_name : <text>xmsim</text>;
+                ucm_checksum : <text>00000000_2f31f7f4</text>;
+                ucm_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/model_dir/icc_00000000_2f31f7f4.ucm</text>;
+                verification_scope : <text>default</text>;
+        }
+
+        coverage_data "xmsim" {
+                tool_name : <text>xmsim</text>;
+                ucd_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/sim_build/cov_work/scope/q1b/icc_00000000_2f31f7f4.ucd</text>;
+                ucm_checksum : <text>00000000_2f31f7f4</text>;
+                verification_scope : <text>default</text>;
+        }
+
+        filter "xmvlog" {
+                filter_files : <text>cdns_sim.flt ovm_sv_lib.flt</text>;
+                filter_id : <text>xmvlog</text>;
+        }
+
+        filter "vm_scan" {
+                filter_files : <text>/mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/bin/ius.flt /mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/runner/bin/shell.flt</text>;
+                filter_id : <text>vm_scan</text>;
+                log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/local_log.log</text>;
+        }
+
+        failure F0 {
+                description : <text>'/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh' failed to execute!</text>;
+                failure_id : <text>F0</text>;
+                filter_reference : <text>8@/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/runner/bin/vm.flt</text>;
+                kind : <text>VMRFEXEC</text>;
+                reference : <text>189@/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/local_log.log</text>;
+                severity : <text>error</text>;
+                tool : <text>vm_runner</text>;
+                failure_source_type_vmgr: <text>run</text>;
+        }
+
+        filter "vm_scan" {
+                filter_files : <text>/mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/bin/cdns_sim.flt /mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/bin/ovm_sv_lib.flt /mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/bin/uvm.flt /mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/runner/bin/vm.flt</text>;
+                filter_id : <text>vm_scan</text>;
+                log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/local_log.log</text>;
+        }
+}
+extend 5 {
+	status: <text>finished</text>;
+	job_status: <text>finished</text>;
+	end_time: <text>1727038556</text>;
+}

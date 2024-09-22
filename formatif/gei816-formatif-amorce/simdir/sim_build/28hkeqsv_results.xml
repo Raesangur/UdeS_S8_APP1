@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1727042542" />
+    <testcase name="q1b" classname="q1b" file="/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/tests/q1b.py" lineno="16" time="0.12390375137329102" sim_time_ns="61700.001" ratio_time="497967.1746508572" />
+  </testsuite>
+</testsuites>

@@ -1,0 +1,29 @@
+2024-09-22 16:55:48,082 - __main__             - INFO    : Starting remote job on gegi-acad-alma. pid: 1012560
+2024-09-22 16:55:49,055 - runner               - INFO    : Initializing RUN phase
+2024-09-22 16:55:49,055 - runner               - INFO    : Run id: 4
+2024-09-22 16:55:49,056 - runner               - INFO    : Setting up environment
+2024-09-22 16:55:50,821 - RUN                  - INFO    : Initializing run phase
+2024-09-22 16:55:50,835 - RUN                  - INFO    : Starting run phase
+2024-09-22 16:55:50,835 - RUN                  - INFO    : Debug log file: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/debug_logs/vm_remote_job_0edf8970-0140-4b3d-9dd3-dbbcae2f66c5.log
+2024-09-22 16:55:50,835 - RUN                  - INFO    : Running run no. 4
+2024-09-22 16:55:50,836 - RUN                  - INFO    : Timeout is set to 900 seconds
+2024-09-22 16:55:50,836 - RUN                  - INFO    : Executing run script: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh"
+2024-09-22 16:55:55,540 - RUN                  - ERROR   : vm_runner: *E,VMRFEXEC: '/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh' failed to execute!
+2024-09-22 16:55:55,540 - RUN                  - ERROR   : run 4 script '/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh' exited with exit code 1
+2024-09-22 16:55:55,543 - phases.phase         - INFO    : Traceback (most recent call last):
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/jobs_manager/python/../../runner/python/phases/phase.py", line 105, in start
+    raise e
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/jobs_manager/python/../../runner/python/phases/phase.py", line 98, in start
+    self._run()
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/jobs_manager/python/../../runner/python/phases/run_phase.py", line 54, in _run
+    self._exec_run_script()
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/jobs_manager/python/../../runner/python/utils/time_logger.py", line 17, in wrapped_func
+    func_return = func(*args, **kwargs)
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/jobs_manager/python/../../runner/python/phases/run_phase.py", line 262, in _exec_run_script
+    raise NonzeroExitException(self._attrs_values.run_script, self.exit_code, 'run {} script'.format(self._context.run_id))
+runner_exceptions.NonzeroExitException: run 4 script '/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh' exited with exit code 1
+
+2024-09-22 16:55:55,544 - RUN                  - INFO    : Starting scanning
+2024-09-22 16:55:56,299 - RUN                  - INFO    : Run done.
+2024-09-22 16:55:56,494 - remote.job_executor  - INFO    : Job finished with exit code: 1
+2024-09-22 16:55:56,533 - __main__             - INFO    : Done with exit code 1

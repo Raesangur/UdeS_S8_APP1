@@ -1,0 +1,68 @@
+session "example_session.lacp3102.24_09_22_16_53_45_0377" {
+	abort_dependent_jobs_on_nonzero_exit: true;
+	abort_dependent_runs_on_failure: false;
+	bundling_policy: disabled;
+	complete: 0;
+	create_debug_logs: false;
+	create_optimized_coverage_data: NONE;
+	drm: PARALLEL LOCAL;
+	enable_session_recovery_vmgr: false;
+	free_hosts: true;
+	host_lock_timeout: 0;
+	id: 1;
+	incremental_merge_slice_size_vmgr: 10;
+	incremental_merge_timeout_to_merge_vmgr: 300;
+	incremental_merge_type_vmgr: NONE;
+	is_sflow: FALSE;
+	master_submission_policy: <text>execute_locally</text>;
+	max_runs_in_parallel: 2;
+	model_dir: <text>$DIR(session)/model_dir</text>;
+	output_mode: <text>log_only</text>;
+	owner: <text>lacp3102</text>;
+	propose_failure_clusters_vmgr: FALSE;
+	queuing_policy: vsif_order;
+	resubmit_failed_submission_vmgr: 0;
+	resubmit_removed_drm_jobs_vmgr: 0;
+	run_mode: <text>batch</text>;
+	session_type: runner;
+	top_dir: <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/..</text>;
+	use_incremental_merged_model_for_analysis_vmgr: true;
+	use_weak_dependency_vmgr: false;
+	verification_scope: <text>default</text>;
+	vsof: <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/example_session.vsof</text>;
+};
+group "example_group" {
+	e_seed: random;
+	engine: <text>$RUN_ENV(BRUN_ENGINE)</text>;
+	estimated_duration_vmgr: 900;
+	exit_on: <text>all</text>;
+	fully_directed: false;
+	ida_recording_window: <text>1000FS</text>;
+	model_dir: <text>$DIR(session)/model_dir</text>;
+	owner: <text>lacp3102</text>;
+	run_mode: <text>batch</text>;
+	run_script: <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh</text>;
+	scan_script: <text>vm_scan.pl ius.flt shell.flt</text>;
+	seed: random;
+	seed_domain: 0;
+	sim_args: <text>$RUN_ENV(BRUN_SIM_ARGS)</text>;
+	sv_seed: random;
+	test_command: <text>test</text>;
+	timeout: 900;
+	verification_scope: <text>default</text>;
+	test "q1a" {
+		iteration: 0;
+		primary_run: false;
+		rerun_id: <text>1@1</text>;
+	};
+	test "q1b" {
+		iteration: 0;
+		primary_run: false;
+		rerun_id: <text>2@2</text>;
+	};
+	test "q1b" {
+		iteration: 0;
+		primary_run: false;
+		rerun_id: <text>3@3</text>;
+	};
+};

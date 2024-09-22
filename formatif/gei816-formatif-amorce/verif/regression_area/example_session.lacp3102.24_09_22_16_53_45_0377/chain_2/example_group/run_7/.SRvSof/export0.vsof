@@ -1,0 +1,57 @@
+//
+// Written by NGen Library ver.1.2.6 2024-09-22 17:28:17
+//
+
+header vsof {
+        runner_version : <text>2</text> ;
+        version : <text>3</text> ;
+        vmanager_version : <text>10.20.xxx-yyy</text> ;
+}
+
+session_output "test" {
+        original_session_dir : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/cov_work/scope</text>;
+        runs_in_session : 1;
+        session_description : <text>Single run of 'test'</text>;
+        session_dir : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/cov_work/scope</text>;
+        session_end_time : <text>1727040497</text>;
+        session_name : <text>test</text>;
+        session_owner : <text>lacp3102</text>;
+        session_start_time : <text>1727040495</text>;
+        session_status : <text>post_session_script_done</text>;
+        session_type : <text>single_run</text>;
+        top_dir : <text>$ATTR(session_dir)/..</text>;
+}
+
+run 1 {
+        cpu_time : 445;
+        end_time : <text>1727040497</text>;
+        engine : <text>xmsim</text>;
+        full_title : <text>test</text>;
+        log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/xrun.log<__SEPARATOR__>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/xrun.log<__SEPARATOR__>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/xrun.log</text>;
+        parent_run : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/example_session.vsof:example_session.lacp3102.24_09_22_16_53_45_0377/example_group/q1a@6</text>;
+        run_dir : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/cov_work/scope/q1a</text>;
+        run_id : 1;
+        run_type : <text>simulation</text>;
+        simulator : <text>xmelab</text>;
+        system_time : 53;
+        user_time : 391;
+        verification_scope : <text>default</text>;
+
+        filter "xmvlog" {
+                filter_files : <text>cdns_sim.flt ovm_sv_lib.flt</text>;
+                filter_id : <text>xmvlog</text>;
+                log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/xrun.log</text>;
+        }
+
+        filter "xmvhdl" {
+                filter_files : <text>cdns_sim.flt ovm_sv_lib.flt</text>;
+                filter_id : <text>xmvhdl</text>;
+                log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/xrun.log</text>;
+        }
+
+        filter "xmelab" {
+                filter_files : <text>cdns_sim.flt ovm_sv_lib.flt</text>;
+                filter_id : <text>xmelab</text>;
+                log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/xrun.log</text>;
+        }
+}

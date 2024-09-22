@@ -1,0 +1,29 @@
+session example_session {
+	drm : "parallel local";
+	max_runs_in_parallel : "2";
+	name : "example_session.lacp3102.24_09_22_16_53_45_0377";
+	queuing_policy : "vsif_order";
+	top_dir : "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area";
+};
+group example_group {
+	drm : "parallel local";
+	run_mode : "batch";
+	run_script : "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh";
+	scan_script : "vm_scan.pl ius.flt shell.flt";
+	test q1a {
+		count : "1";
+		drm : "parallel local";
+		estimated_duration_vmgr : "900";
+		run_mode : "batch";
+		run_script : "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh";
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test q1b {
+		count : "2";
+		drm : "parallel local";
+		estimated_duration_vmgr : "900";
+		run_mode : "batch";
+		run_script : "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh";
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+};

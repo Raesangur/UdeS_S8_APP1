@@ -1,0 +1,62 @@
+//
+// Written by NGen Library ver.1.2.6 2024-09-22 17:28:20
+//
+
+header vsof {
+        runner_version : <text>2</text> ;
+        version : <text>3</text> ;
+        vmanager_version : <text>10.20.xxx-yyy</text> ;
+}
+
+session_output "$unit_0x675ed7ae__top" {
+        original_session_dir : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/cov_work/scope</text>;
+        runs_in_session : 1;
+        session_description : <text>Single run of '$unit_0x675ed7ae__top' using SV seed 767042342</text>;
+        session_dir : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/cov_work/scope</text>;
+        session_end_time : <text>1727040500</text>;
+        session_name : <text>$unit_0x675ed7ae__top</text>;
+        session_owner : <text>lacp3102</text>;
+        session_start_time : <text>1727040498</text>;
+        session_status : <text>post_session_script_done</text>;
+        session_type : <text>single_run</text>;
+        top_dir : <text>$ATTR(session_dir)/..</text>;
+}
+
+run 1 {
+        cpu_time : 1754;
+        end_time : <text>1727040500</text>;
+        engine : <text>xmsim</text>;
+        full_title : <text>$unit_0x675ed7ae__top</text>;
+        log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/cov_work/scope/q1a/xrun.log</text>;
+        parent_run : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/example_session.vsof:example_session.lacp3102.24_09_22_16_53_45_0377/example_group/q1a@6</text>;
+        run_dir : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/cov_work/scope/q1a</text>;
+        run_id : 1;
+        run_type : <text>simulation</text>;
+        simulation_time : 61700001000;
+        simulator : <text>xmsim</text>;
+        snap_path  : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/xcelium.d</text>;
+        sv_seed : 767042342;
+        system_time : 122;
+        user_time : 1631;
+        verification_scope : <text>default</text>;
+
+        filter "xmsim" {
+                filter_files : <text>cdns_sim.flt ovm_sv_lib.flt</text>;
+                filter_id : <text>xmsim</text>;
+                log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/cov_work/scope/q1a/xrun.log</text>;
+        }
+
+        coverage_model "xmsim" {
+                tool_name : <text>xmsim</text>;
+                ucm_checksum : <text>00000000_2f31f7f4</text>;
+                ucm_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/model_dir/icc_00000000_2f31f7f4.ucm</text>;
+                verification_scope : <text>default</text>;
+        }
+
+        coverage_data "xmsim" {
+                tool_name : <text>xmsim</text>;
+                ucd_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group/run_7/sim_build/cov_work/scope/q1a/icc_00000000_2f31f7f4.ucd</text>;
+                ucm_checksum : <text>00000000_2f31f7f4</text>;
+                verification_scope : <text>default</text>;
+        }
+}

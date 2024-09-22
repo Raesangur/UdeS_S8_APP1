@@ -1,0 +1,62 @@
+xrun(64): 23.09-s006: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s006: Started on Sep 22, 2024 at 16:56:02 EDT
+xrun
+	-64
+	-R
+	-nowarn COVFHT
+	-nowarn COVCGN
+	-nowarn COVUTA
+	-nowarn ICFCLD
+	-nowarn WSEM2009
+	-input /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/misc_commands.tcl
+	-run
+	-exit
+	-seed random
+	-coverage u
+	-covfile /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/coverage.tcl
+	-covdut top
+	-covoverwrite
+	-covtest q1b
+Loading snapshot worklib.top:sv .................... Done
+SVSEED set randomly from command line: -1926198495
+Writing initial vsof to /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_6/.SRvSof/xmsim_2024_09_22_16_56_03.vsof
+xcelium> source /mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/xcelium/files/xmsimrc
+xcelium> ########################################################################
+xcelium> ## Author  :    Marc-Andre Tetrault
+xcelium> ## Project :    Verification Primer
+xcelium> ##
+xcelium> ## Universite de Sherbrooke
+xcelium> ########################################################################
+xcelium> #
+xcelium> # Purpose   :   Misc Commands sent to simulator
+xcelium> ########################################################################
+xcelium> 
+xcelium> 
+xcelium> # get the seed. Reference: "SystemVerilog Reference" from Cadence Help tool (cdnshelp)
+xcelium> set RetrievedSeed [set svseed]
+-1926198495
+xcelium> puts "The SystemVerilog seed is $RetrievedSeed"
+The SystemVerilog seed is -1926198495
+xcelium> 
+xcelium> # set severity_pack_assert_off {warning}
+xcelium> # set pack_assert_off {  numeric_std }
+xcelium> 
+xcelium> # set assert_stop_level never
+xcelium> run
+xmsim: *W,RNQUIE: Simulation is complete.
+xcelium> exit
+xmsim: *W,CGDEFN: Default name "top.inst_topvhdl:inst_square_root:inst_sqrt_conv_bindings.sqrt_cov" will be generated for covergroup instance "sqrt_cov" as the name of the covergroup instance is not specified explicitly: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/assertions/sqrt_conv_bindings.sv, 38.
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  top(top)
+  scope    :  scope
+  testname :  q1b
+
+coverage files:
+  model(design data) :  /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/model_dir/icc_00000000_2f31f7f4.ucm (reused)
+  data               :  ./cov_work/scope/q1b/icc_00000000_2f31f7f4.ucd
+TOOL:	xrun(64)	23.09-s006: Exiting on Sep 22, 2024 at 16:56:03 EDT  (total: 00:00:01)
+  Wrote vManager metrics information to /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_6/sim_build/cov_work/scope/q1b/cdns_sim.vsof
+
+ Intermediate vsof file located at /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_6/.SRvSof/xmsim_2024_09_22_16_56_03.vsof is deleted

@@ -1,0 +1,66 @@
+2024-09-22 16:54:05,876 - __main__             - INFO    : Starting remote job on gegi-acad-alma. pid: 1011531
+2024-09-22 16:54:06,402 - runner               - INFO    : Initializing POST_SESSION phase
+2024-09-22 16:54:06,403 - runner               - INFO    : Setting up environment
+2024-09-22 16:54:07,009 - POST_SESSION         - INFO    : Initializing post_session phase
+2024-09-22 16:54:07,022 - POST_SESSION         - INFO    : Starting post_session phase
+2024-09-22 16:54:07,023 - POST_SESSION         - INFO    : Debug log file: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/debug_logs/vm_remote_job_28a7e2dc-ac23-459f-9c1b-49f9b8a71592.log
+2024-09-22 16:54:07,023 - POST_SESSION         - INFO    : Calculating CUDA
+2024-09-22 16:54:07,041 - POST_SESSION         - WARNING : Error while calculating cuda: HTTPSConnectionPool(host='null', port=443): Max retries exceeded with url: /vmgr/hmac/vapi/rest/sessions/recalculate-uda-scripts (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f900ce06a58>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+2024-09-22 16:54:07,073 - phases.phase         - INFO    : Traceback (most recent call last):
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/urllib3/util/connection.py", line 57, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/urllib3/connectionpool.py", line 839, in _validate_conn
+    conn.connect()
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/urllib3/connection.py", line 301, in connect
+    conn = self._new_conn()
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/urllib3/connection.py", line 168, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x7f900ce06a58>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='null', port=443): Max retries exceeded with url: /vmgr/hmac/vapi/rest/sessions/recalculate-uda-scripts (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f900ce06a58>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/jobs_manager/python/../../runner/python/phases/session_phases.py", line 83, in _calc_cuda
+    "values": [self._context.session_name]
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/jobs_manager/python/../../runner/python/services/vapi.py", line 54, in calc_cuda
+    return self.call_vapi_cmd(command, 'POST', data)
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/jobs_manager/python/../../runner/python/services/vapi.py", line 38, in call_vapi_cmd
+    response = requests.post(vapi_url, headers=self.headers, data=input_data, auth=self.auth, verify=False)
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/requests/api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools.lnx86/python372/lib/python3.7/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='null', port=443): Max retries exceeded with url: /vmgr/hmac/vapi/rest/sessions/recalculate-uda-scripts (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f900ce06a58>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+2024-09-22 16:54:08,523 - remote.job_executor  - INFO    : Job finished with exit code: 0
+2024-09-22 16:54:08,542 - __main__             - INFO    : Done with exit code 0

@@ -1,0 +1,27 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-PLINOWARN
+-COVOVERWRITE
+-COVTEST
+q1a
+-MESSAGES
++EMGRLOG
+xrun.log
+-XLSTIME
+1727038551
+-XLKEEP
+-XLMODE
+./xcelium.d/run.lnx8664.23.09.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx8664.23.09.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.23.09.d/hdl.var
+-XLNAME
+xrun
+-XLVERSION
+"TOOL:	xrun(64)	23.09-s006"
+-XLNAME
+./xcelium.d/run.lnx8664.23.09.d/gegi-acad-alma_a9a4a561-8e98-4bae-99e9-4ecbce667419

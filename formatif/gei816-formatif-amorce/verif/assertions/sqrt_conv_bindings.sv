@@ -31,13 +31,20 @@ module sqrt_conv_bindings
     input logic [3:0] cov_sqrt_res
 	);
 
+covergroup sqrt_covg @(posedge cov_clk);
+    in_full  : coverpoint cov_arg;
+    out_full : coverpoint cov_sqrt_res;
+endgroup
+sqrt_covg sqrt_cov = new();
+
 default clocking DEFCLK @(posedge cov_clk);
 endclocking
 
-//property p_NomPropriete;
-//	description de sequence;
-//endproperty
-//cov_NomCouverture : cover property(p_NomPropriete);
+property q2_3;
+    $rose(cov_arg_valid) |-> ##4 cov_sqrt_valid;
+endproperty
+cov_q2_3 : cover property(q2_3);
+ass_q2_3 : assert property(q2_3);
 
 // Voir aide mémoire pour covergroup et coverpoint
 

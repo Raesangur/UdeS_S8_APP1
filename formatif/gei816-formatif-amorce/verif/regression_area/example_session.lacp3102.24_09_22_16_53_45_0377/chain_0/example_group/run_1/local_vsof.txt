@@ -1,0 +1,57 @@
+extend 1 {
+	user_time: <text>0</text>;
+	system_time: <text>6</text>;
+	cpu_time: <text>6</text>;
+	simulation_time: <text>0</text>;
+}
+extend 1 {
+	failure RUN {
+		description: <text>run 1 script '/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh' exited with exit code 126</text>;
+		severity: <text>critical</text>;
+		reference: <text>9@/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/example_group/run_1/local_log.log</text>;
+		failure_source_type_vmgr: <text>run</text>;
+	}
+}
+
+extend 1 {
+        end_time : <text>1727038440</text>;
+        log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/example_group/run_1/local_log.log</text>;
+        parent_run : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/example_session.vsof:example_session/example_group/q1a@0</text>;
+        run_id : 1;
+        run_type : <text>simulation</text>;
+        verification_scope : <text>default</text>;
+
+        filter "vm_scan" {
+                filter_files : <text>/mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/bin/ius.flt /mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/runner/bin/shell.flt</text>;
+                filter_id : <text>vm_scan</text>;
+                log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/example_group/run_1/local_log.log</text>;
+        }
+
+        filter "vm_scan" {
+                filter_files : <text>/mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/bin/specman.flt</text>;
+                filter_id : <text>vm_scan</text>;
+                log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/example_group/run_1/local_log.log</text>;
+        }
+
+        failure F0 {
+                description : <text>'/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh' failed to execute!</text>;
+                failure_id : <text>F0</text>;
+                filter_reference : <text>8@/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/runner/bin/vm.flt</text>;
+                kind : <text>VMRFEXEC</text>;
+                reference : <text>8@/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/example_group/run_1/local_log.log</text>;
+                severity : <text>error</text>;
+                tool : <text>vm_runner</text>;
+                failure_source_type_vmgr: <text>run</text>;
+        }
+
+        filter "vm_scan" {
+                filter_files : <text>/mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/runner/bin/vm.flt</text>;
+                filter_id : <text>vm_scan</text>;
+                log_file : <text>/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/example_group/run_1/local_log.log</text>;
+        }
+}
+extend 1 {
+	status: <text>finished</text>;
+	job_status: <text>finished</text>;
+	end_time: <text>1727038441</text>;
+}

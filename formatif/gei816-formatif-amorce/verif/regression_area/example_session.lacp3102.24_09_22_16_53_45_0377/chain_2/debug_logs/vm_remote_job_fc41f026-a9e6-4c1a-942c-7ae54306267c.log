@@ -1,0 +1,14 @@
+2024-09-22 17:28:21,749 - __main__             - INFO    : Starting remote job on gegi-acad-alma. pid: 1023616
+2024-09-22 17:28:22,273 - runner               - INFO    : Initializing RUN phase
+2024-09-22 17:28:22,273 - runner               - INFO    : Run id: 9
+2024-09-22 17:28:22,273 - runner               - INFO    : Setting up environment
+2024-09-22 17:28:24,136 - RUN                  - INFO    : Initializing run phase
+2024-09-22 17:28:24,152 - RUN                  - INFO    : Starting run phase
+2024-09-22 17:28:24,152 - RUN                  - INFO    : Debug log file: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/debug_logs/vm_remote_job_fc41f026-a9e6-4c1a-942c-7ae54306267c.log
+2024-09-22 17:28:24,152 - RUN                  - INFO    : Running run no. 9
+2024-09-22 17:28:24,153 - RUN                  - INFO    : Timeout is set to 900 seconds
+2024-09-22 17:28:24,153 - RUN                  - INFO    : Executing run script: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh"
+2024-09-22 17:28:30,025 - RUN                  - INFO    : Starting scanning
+2024-09-22 17:28:30,674 - RUN                  - INFO    : Run done.
+2024-09-22 17:28:30,841 - remote.job_executor  - INFO    : Job finished with exit code: 0
+2024-09-22 17:28:30,857 - __main__             - INFO    : Done with exit code 0

@@ -1,0 +1,238 @@
+RUN - INFO - Initializing run phase
+RUN - INFO - Starting run phase
+RUN - INFO - Debug log file: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/debug_logs/vm_remote_job_734e12d3-1536-4465-87b4-12f4cb9be0f7.log
+RUN - INFO - Running run no. 5
+RUN - INFO - Timeout is set to 900 seconds
+RUN - INFO - Executing run script: "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh"
+/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/runsim.py -b --sva --cov --test q1b --seed random
+INFO cocotb: Running command: xrun -64 -elaborate -define COCOTB_SIM=1 -loadvpi /usr/local/lib64/python3.9/site-packages/cocotb/libs/libcocotbvpi_ius.so:vlog_startup_routines_bootstrap -plinowarn -access +rwc -top top -v93 /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/sqrt_conv.vhd -v93 /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/uart_rx.vhd -v93 /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/uart_tx.vhd -v93 /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/topvhdl.vhd -sv /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/top.sv -f /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/tb_sva_bindings.f  -coverage u -covfile /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/coverage.tcl -covdut top -covoverwrite -covtest q1b
+INFO cocotb: TOOL:	xrun(64)	23.09-s006: Started on Sep 22, 2024 at 16:55:51 EDT
+INFO cocotb: xrun(64): 23.09-s006: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+INFO cocotb: Writing initial vsof to /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/.SRvSof/xmvlog_2024_09_22_16_55_52.vsof
+INFO cocotb: file: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/top.sv
+INFO cocotb: 	module worklib.top:sv
+INFO cocotb: 		errors: 0, warnings: 0
+INFO cocotb: file: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/assertions/sqrt_conv_bindings.sv
+INFO cocotb: 	module worklib.sqrt_conv_bindings:sv
+INFO cocotb: 		errors: 0, warnings: 0
+INFO cocotb: Writing initial vsof to /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/sim_build/cov_work/scope/q1b/cdns_sim.vsof
+INFO cocotb: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/sqrt_conv.vhd:
+INFO cocotb: 	errors: 0, warnings: 0
+INFO cocotb: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/uart_rx.vhd:
+INFO cocotb: 	errors: 0, warnings: 0
+INFO cocotb: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/uart_tx.vhd:
+INFO cocotb: 	errors: 0, warnings: 0
+INFO cocotb: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/topvhdl.vhd:
+INFO cocotb: 	errors: 0, warnings: 0
+INFO cocotb: WORKLIB.SQRT_CONV (entity):
+INFO cocotb: 	streams: 9, words: 629
+INFO cocotb: WORKLIB.SQRT_CONV:BEHAV (architecture):
+INFO cocotb: 	streams: 1, words: 773
+INFO cocotb: WORKLIB.UART_RX (entity):
+INFO cocotb: 	streams: 7, words: 434
+INFO cocotb: WORKLIB.UART_RX:RTL (architecture):
+INFO cocotb: 	streams: 1, words: 689
+INFO cocotb: WORKLIB.UART_TX (entity):
+INFO cocotb: 	streams: 9, words: 450
+INFO cocotb: WORKLIB.UART_TX:RTL (architecture):
+INFO cocotb: 	streams: 1, words: 661
+INFO cocotb: WORKLIB.TOPVHDL (entity):
+INFO cocotb: 	streams: 5, words: 95
+INFO cocotb: WORKLIB.TOPVHDL:BEHAVIOURAL (architecture):
+INFO cocotb: 	streams: 1, words: 1931
+INFO cocotb: Writing initial vsof to /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/sim_build/cov_work/scope/q1b/cdns_sim.vsof
+INFO cocotb:      -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:79   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+INFO cocotb:      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+INFO cocotb:      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VHPI registered
+INFO cocotb: 	Elaborating the design hierarchy:
+INFO cocotb: xmelab: *N,ICFCLD: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/coverage.tcl:25: By default, the logfile is not created for the constant objects identified by Constant Object Marking that is switched on by the command "set_com". To enable creation of the logfile, specify the option '-log' with the command.
+INFO cocotb: 		Caching library 'worklib' ....... Done
+INFO cocotb: 	Top level design units:
+INFO cocotb: 		$unit_0x675ed7ae
+INFO cocotb: 		top
+INFO cocotb: xmelab: *N,REINVK: Re-invoking parser to process SV bind statements with VHDL targets.
+INFO cocotb:      -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:79   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+INFO cocotb:      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+INFO cocotb:      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VHPI registered
+INFO cocotb: xmelab: *N,ICFCLD: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/coverage.tcl:25: By default, the logfile is not created for the constant objects identified by Constant Object Marking that is switched on by the command "set_com". To enable creation of the logfile, specify the option '-log' with the command.
+INFO cocotb: 	Building instance overlay tables: .................... Done
+INFO cocotb: 	Enabling instrumentation for coverage types: functional
+INFO cocotb: 	Generating native compiled code:
+INFO cocotb: 		worklib.sqrt_conv_bindings:sv <0x6b5bbb93>
+INFO cocotb: 			streams:  12, words:  7521
+INFO cocotb: 		worklib.top:sv <0x3d55d24a>
+INFO cocotb: 			streams:   1, words:   319
+INFO cocotb: 	Building instance specific data structures.
+INFO cocotb: xmelab: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
+INFO cocotb: 	Loading native compiled code:     .................... Done
+INFO cocotb: 	Design hierarchy summary:
+INFO cocotb: 		                 Instances  Unique
+INFO cocotb: 	VHDL Design hierarchy:
+INFO cocotb: 		Components:              4       5
+INFO cocotb: 		Default bindings:        3       -
+INFO cocotb: 		Processes:               9      12
+INFO cocotb: 		Signals:                21      24
+INFO cocotb: 	Verilog Design hierarchy:
+INFO cocotb: 		Modules:                 2       2
+INFO cocotb: 		Registers:              11      11
+INFO cocotb: 		Scalar wires:            4       -
+INFO cocotb: 		Always blocks:           4       4
+INFO cocotb: 		Initial blocks:          3       3
+INFO cocotb: 		Clocking blocks:         1       1
+INFO cocotb: 		Pseudo assignments:      1       -
+INFO cocotb: 		Assertions:              2       2
+INFO cocotb: 		Covergroup Instances:    0       1
+INFO cocotb: 		Compilation units:       1       1
+INFO cocotb: 		Process Clocks:          2       1
+INFO cocotb: 		Simulation timescale:  1ps
+INFO cocotb: 	Writing initial simulation snapshot: worklib.top:sv
+INFO cocotb: TOOL:	xrun(64)	23.09-s006: Exiting on Sep 22, 2024 at 16:55:53 EDT  (total: 00:00:02)
+INFO cocotb: Running command: xrun -64 -R   -nowarn COVFHT -nowarn COVCGN -nowarn COVUTA -nowarn ICFCLD -nowarn WSEM2009 -input /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/misc_commands.tcl -run -exit -seed random  -coverage u -covfile /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/coverage.tcl -covdut top -covoverwrite -covtest q1b
+INFO cocotb: TOOL:	xrun(64)	23.09-s006: Started on Sep 22, 2024 at 16:55:54 EDT
+INFO cocotb: xrun(64): 23.09-s006: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+INFO cocotb: Loading snapshot worklib.top:sv .................... Done
+INFO cocotb: SVSEED set randomly from command line: 1004838251
+INFO cocotb: Writing initial vsof to /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/.SRvSof/xmsim_2024_09_22_16_55_55.vsof
+INFO cocotb:      -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:79   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+INFO cocotb:      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+INFO cocotb:      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VHPI registered
+INFO cocotb: xcelium> source /mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/xcelium/files/xmsimrc
+INFO cocotb: xcelium> ########################################################################
+INFO cocotb: xcelium> ## Author  :    Marc-Andre Tetrault
+INFO cocotb: xcelium> ## Project :    Verification Primer
+INFO cocotb: xcelium> ##
+INFO cocotb: xcelium> ## Universite de Sherbrooke
+INFO cocotb: xcelium> ########################################################################
+INFO cocotb: xcelium> #
+INFO cocotb: xcelium> # Purpose   :   Misc Commands sent to simulator
+INFO cocotb: xcelium> ########################################################################
+INFO cocotb: xcelium>
+INFO cocotb: xcelium>
+INFO cocotb: xcelium> # get the seed. Reference: "SystemVerilog Reference" from Cadence Help tool (cdnshelp)
+INFO cocotb: xcelium> set RetrievedSeed [set svseed]
+INFO cocotb: 1004838251
+INFO cocotb: xcelium> puts "The SystemVerilog seed is $RetrievedSeed"
+INFO cocotb: The SystemVerilog seed is 1004838251
+INFO cocotb: xcelium>
+INFO cocotb: xcelium> # set severity_pack_assert_off {warning}
+INFO cocotb: xcelium> # set pack_assert_off {  numeric_std }
+INFO cocotb: xcelium>
+INFO cocotb: xcelium> # set assert_stop_level never
+INFO cocotb: xcelium> run
+INFO cocotb:      0.00ns INFO     cocotb                             Running on xmsim(64) version 23.09-s006
+INFO cocotb:      0.00ns INFO     cocotb                             Running tests with cocotb v1.9.0 from /usr/local/lib64/python3.9/site-packages/cocotb
+INFO cocotb:      0.00ns INFO     cocotb                             Seeding Python random module with 1727038555
+INFO cocotb:      0.00ns CRITICAL cocotb.regression                  Failed to import module q1b: No module named 'q1b'
+INFO cocotb:      0.00ns INFO     cocotb.regression                  MODULE variable was "q1b"
+INFO cocotb:      0.00ns INFO     cocotb.regression                  Traceback:
+INFO cocotb:      0.00ns INFO     cocotb.regression                  Traceback (most recent call last):
+INFO cocotb:                                                           File "/usr/local/lib64/python3.9/site-packages/cocotb/regression.py", line 203, in _discover_tests
+INFO cocotb:                                                             module = _my_import(module_name)
+INFO cocotb:                                                           File "/usr/local/lib64/python3.9/site-packages/cocotb/regression.py", line 72, in _my_import
+INFO cocotb:                                                             mod = __import__(name)
+INFO cocotb:                                                         ModuleNotFoundError: No module named 'q1b'
+INFO cocotb: 
+ERROR cocotb: Traceback (most recent call last):
+ERROR cocotb:   File "/usr/local/lib64/python3.9/site-packages/cocotb/__init__.py", line 233, in _initialise_testbench
+ERROR cocotb:     _initialise_testbench_(argv_)
+ERROR cocotb:   File "/usr/local/lib64/python3.9/site-packages/cocotb/__init__.py", line 316, in _initialise_testbench_
+ERROR cocotb:     regression_manager = RegressionManager.from_discovery(top)
+ERROR cocotb:   File "/usr/local/lib64/python3.9/site-packages/cocotb/regression.py", line 174, in from_discovery
+ERROR cocotb:     return cls(dut, tests)
+ERROR cocotb:   File "/usr/local/lib64/python3.9/site-packages/cocotb/regression.py", line 153, in __init__
+ERROR cocotb:     for test in tests:
+ERROR cocotb:   File "/usr/local/lib64/python3.9/site-packages/cocotb/regression.py", line 203, in _discover_tests
+ERROR cocotb:     module = _my_import(module_name)
+ERROR cocotb:   File "/usr/local/lib64/python3.9/site-packages/cocotb/regression.py", line 72, in _my_import
+ERROR cocotb:     mod = __import__(name)
+ERROR cocotb: ModuleNotFoundError: No module named 'q1b'
+ERROR cocotb: Traceback (most recent call last):
+ERROR cocotb:   File "/usr/local/lib64/python3.9/site-packages/cocotb/__init__.py", line 332, in _sim_event
+ERROR cocotb:     scheduler.log.error(msg)
+ERROR cocotb: AttributeError: 'NoneType' object has no attribute 'log'
+INFO cocotb:      0.00ns ERROR    gpi                                Passing event to upper layer failed
+INFO cocotb: xmsim: *W,RNQUIE: Simulation is complete.
+INFO cocotb: xcelium> exit
+INFO cocotb: xmsim: *W,CGDEFN: Default name "top.inst_topvhdl:inst_square_root:inst_sqrt_conv_bindings.sqrt_cov" will be generated for covergroup instance "sqrt_cov" as the name of the covergroup instance is not specified explicitly: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/assertions/sqrt_conv_bindings.sv, 38.
+INFO cocotb: 
+INFO cocotb: coverage setup:
+INFO cocotb:   workdir  :  ./cov_work
+INFO cocotb:   dutinst  :  top(top)
+INFO cocotb:   scope    :  scope
+INFO cocotb:   testname :  q1b
+INFO cocotb: 
+INFO cocotb: coverage files:
+INFO cocotb:   model(design data) :  /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/model_dir/icc_00000000_2f31f7f4.ucm
+INFO cocotb:   data               :  ./cov_work/scope/q1b/icc_00000000_2f31f7f4.ucd
+INFO cocotb: TOOL:	xrun(64)	23.09-s006: Exiting on Sep 22, 2024 at 16:55:55 EDT  (total: 00:00:01)
+INFO cocotb:   Wrote vManager metrics information to /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/sim_build/cov_work/scope/q1b/cdns_sim.vsof
+INFO cocotb: 
+INFO cocotb:  Intermediate vsof file located at /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_1/example_group/run_5/.SRvSof/xmsim_2024_09_22_16_55_55.vsof is deleted
+cocotb packages ok.
+None
+batch mode without waveform specification, turn waves off
+-v93 /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/sqrt_conv.vhd -v93 /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/uart_rx.vhd -v93 /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/uart_tx.vhd -v93 /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/topvhdl.vhd -sv /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/design/top.sv
+Traceback (most recent call last):
+  File "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/runsim.py", line 250, in <module>
+    test_start()
+  File "/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/runsim.py", line 236, in test_start
+    run(
+  File "/usr/local/lib/python3.9/site-packages/cocotb_test/simulator.py", line 1223, in run
+    return sim.run()
+  File "/usr/local/lib/python3.9/site-packages/cocotb_test/simulator.py", line 252, in run
+    tree = ET.parse(results_xml_file)
+  File "/usr/lib64/python3.9/xml/etree/ElementTree.py", line 1222, in parse
+    tree.parse(source, parser)
+  File "/usr/lib64/python3.9/xml/etree/ElementTree.py", line 580, in parse
+    self._root = parser._parse_whole(source)
+xml.etree.ElementTree.ParseError: no element found: line 1, column 0
+RUN - ERROR - vm_runner: *E,VMRFEXEC: '/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh' failed to execute!
+RUN - ERROR - run 5 script '/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/scripts/do_vmanager_runsim.tcsh' exited with exit code 1
+RUN - INFO - Starting scanning
+vm_srmp: *N,START: vManager Single Run Metrics Processor...
+
+--------------------------------------------------------------------
+-- Phase: Reading Input vSofs
+--------------------------------------------------------------------
+vm_srmp: *N,READ: Reading vSof ${BRUN_RUN_DIR}/.SRvSof/export0.vsof
+vm_srmp: *N,READ: Reading vSof ${BRUN_RUN_DIR}/.SRvSof/export1.vsof
+vm_srmp: *N,READ: Reading vSof ${BRUN_RUN_DIR}/.SRvSof/xmvlog_2024_09_22_16_55_52.vsof
+vm_srmp: *N,IMPORT: Import results from ${BRUN_RUN_DIR}/.SRvSof/export0.vsof
+vm_srmp: *N,IMPORT: Import results from ${BRUN_RUN_DIR}/.SRvSof/export1.vsof
+vm_srmp: *N,IMPORT: Import results from ${BRUN_RUN_DIR}/.SRvSof/xmvlog_2024_09_22_16_55_52.vsof
+
+--------------------------------------------------------------------
+-- Phase: User Scanning
+--------------------------------------------------------------------
+vm_srmp: *N,EXEC: vm_scan.pl ius.flt shell.flt 
+vm_scan.pl: Scanning information:
+  Log file: local_log.log
+  Filter files:
+    1. ius.flt
+    2. shell.flt
+vm_scan.pl: total of 0 patterns extracted.
+Wrote ./.vm_scan.gegi-acad-alma.1015572.1/vm_scan_22_16_55_55.vsof
+vm_srmp: *N,READ: Reading vSof ./.vm_scan.gegi-acad-alma.1015572.1/vm_scan_22_16_55_55.vsof
+vm_srmp: *N,IMPORT: Import results from ./.vm_scan.gegi-acad-alma.1015572.1/vm_scan_22_16_55_55.vsof
+
+--------------------------------------------------------------------
+-- Phase: Complementary Scanning
+--------------------------------------------------------------------
+vm_srmp: *N,EXEC: vm_scan.pl  /mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/bin/cdns_sim.flt /mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/bin/ovm_sv_lib.flt /mnt/opt/cmc/tools/cadence/VMANAGER23.03.002_lnx86/tools/vmgr/runner/bin/vm.flt 
+vm_scan.pl: Scanning information:
+  Log file: local_log.log
+  Filter files:
+    1. /mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/bin/cdns_sim.flt
+    2. /mnt/opt/cmc/tools/cadence/XCELIUMMAIN23.09.006_lnx86/tools/bin/ovm_sv_lib.flt
+    3. vm.flt
+vm_scan.pl: total of 1 patterns extracted.
+Wrote ./.vm_scan.gegi-acad-alma.1015572.2/vm_scan_22_16_55_56.vsof
+vm_srmp: *N,READ: Reading vSof ./.vm_scan.gegi-acad-alma.1015572.2/vm_scan_22_16_55_56.vsof
+vm_srmp: *N,IMPORT: Import results from ./.vm_scan.gegi-acad-alma.1015572.2/vm_scan_22_16_55_56.vsof
+
+--------------------------------------------------------------------
+-- Phase: Writing Single Run vSof
+--------------------------------------------------------------------
+vm_srmp: *N,WRITE: Writing vSof ${BRUN_RUN_DIR}/local_vsof.txt
+vm_srmp: *N,COMPLETE: vManager Single Run Metrics Processor completed successfully
+RUN - INFO - Run done.

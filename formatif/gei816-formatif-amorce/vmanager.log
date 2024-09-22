@@ -1,0 +1,5 @@
+Cadence Verisium Manager(64): 23.03-s002: (c) Copyright 1995-2023 Cadence Design Systems Inc - Simulator version: 23.09-s006 - Coverage engine version: 23.09-s006
+Starting gui mode
+vmanager: *I,runner.startingSession: Starting session /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/tests/example.vsif
+vmanager: *I,runner.sessionStarted: Session example_session.lacp3102.24_09_22_16_53_45_0377 started.
+vmanager: *I,MERGL1: The merged icc coverage cache was not reused due to different configuration or set of runs.

@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1727034617" />
+    <testcase name="do_wait_only" classname="do_wait_only" file="/home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/tests/do_wait_only.py" lineno="11" time="0.1490650177001953" sim_time_ns="102300.001" ratio_time="686277.7234947858" />
+  </testsuite>
+</testsuites>

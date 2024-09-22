@@ -1,0 +1,29 @@
+POST_SESSION - INFO - Initializing post_session phase
+POST_SESSION - INFO - Starting post_session phase
+POST_SESSION - INFO - Debug log file: /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_0/debug_logs/vm_remote_job_28a7e2dc-ac23-459f-9c1b-49f9b8a71592.log
+POST_SESSION - INFO - Calculating CUDA
+POST_SESSION - WARNING - Error while calculating cuda: HTTPSConnectionPool(host='null', port=443): Max retries exceeded with url: /vmgr/hmac/vapi/rest/sessions/recalculate-uda-scripts (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f900ce06a58>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+sept. 22, 2024 4:54:08 P.M. com.cadence.mdv.scripts.vmgrautomation main
+INFOS: ### Automation connection details: null:0:vmgr, session-id=1, wait=true, timeout=true
+java.net.UnknownHostException: null
+	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+	at java.base/java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(Unknown Source)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.connect(Unknown Source)
+	at java.base/sun.net.NetworkClient.doConnect(Unknown Source)
+	at java.base/sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at java.base/sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(Unknown Source)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(Unknown Source)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(Unknown Source)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at java.base/java.net.HttpURLConnection.getResponseCode(Unknown Source)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(Unknown Source)
+	at com.cadence.mdv.bootstrap.UrlReaderUtil.readUrlBody(UrlReaderUtil.java:29)
+	at com.cadence.mdv.scripts.vmgrautomation.getSessionStatus(vmgrautomation.java:146)
+	at com.cadence.mdv.scripts.vmgrautomation.main(vmgrautomation.java:69)

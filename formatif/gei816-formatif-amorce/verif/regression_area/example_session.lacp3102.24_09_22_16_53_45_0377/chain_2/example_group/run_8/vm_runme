@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -ne 0 ];then
+ /bin/echo 'Error: No arguments are supported.'
+ exit 1;
+fi
+
+if [ "$RR_WITH_ENV" = "1" ]; then
+. `rr_root`/tools/vmgr/runner/bin/rr_runme.sh  --chain_dir /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2 --group_dir /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group --run_id 8 --seed 1004838251 --e_seed 1004838251 --sv_seed 1004838251 
+else
+`rr_root`/tools/vmgr/runner/bin/rr_runme.sh  --chain_dir /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2 --group_dir /home/lacp3102/APP1/UdeS_S8_APP1/formatif/gei816-formatif-amorce/verif/regression_area/example_session.lacp3102.24_09_22_16_53_45_0377/chain_2/example_group --run_id 8 --seed 1004838251 --e_seed 1004838251 --sv_seed 1004838251 
+fi

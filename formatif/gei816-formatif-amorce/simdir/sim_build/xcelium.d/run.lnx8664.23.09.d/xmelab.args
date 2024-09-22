@@ -1,0 +1,27 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-LOADVPI
+/usr/local/lib64/python3.9/site-packages/cocotb/libs/libcocotbvpi_ius.so:vlog_startup_routines_bootstrap
+-PLINOWARN
+-ACCESS
++rwc
+-V93
+-V93
+-V93
+-V93
+-no_analogsolver
+-MESSAGES
+top
+-XLMODE
+./xcelium.d/run.lnx8664.23.09.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx8664.23.09.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.23.09.d/hdl.var
+-WORK
+worklib
+-IRUNHASTOP
+-HASXLMODE

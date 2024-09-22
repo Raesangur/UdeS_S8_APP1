@@ -98,7 +98,7 @@ ast_tdc1d : assert property(p_tdc1d)
 // CRC 2 - i_enableChannel
 // TDC 2.b - All outputs remains the same
 property p_tdc2b;
-    @(posedge cov_clk) disable iff (!cov_reset)
+    @(posedge cov_clk) disable iff (cov_reset)
         cov_enable == 0 |=> ##1 $stable(cov_busy) && $stable(cov_hasEvent)
                                    && $stable(cov_TS) && $stable(cov_TOT);
 endproperty
